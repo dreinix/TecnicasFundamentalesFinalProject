@@ -19,9 +19,8 @@ namespace TecnicasFundamentalesProyectoFinal
         public DataBaseControl(string _rute,string _DataBaseName)
         {
             _location = _rute + _DataBaseName;
-
         }
-        public void Open()
+        private void Open()
         {
             try
             {
@@ -38,6 +37,7 @@ namespace TecnicasFundamentalesProyectoFinal
         }
         public List<SqlDataReader> Buscar(string _query)
         {
+            Open();
             List<SqlDataReader> returnList = new List<SqlDataReader>();
             using (cmd = new SqlCommand(_query,con))
             {   
@@ -45,14 +45,17 @@ namespace TecnicasFundamentalesProyectoFinal
                 while (reader.Read()) {
                     returnList.Add(reader);
                 }
+                Close();
                 return returnList;
             }
+            
         }
         public List<string[]> Buscar(string _query,string[] _parameters,string[] _elements,int _elementsReturned)
         {
             List<string[]> returnList = new List<string[]>();
             try
             {
+                Open();
                 using (cmd = new SqlCommand(_query, con))
                 {
                     for (int i = 0; i < _elements.Length; i++)
@@ -81,6 +84,7 @@ namespace TecnicasFundamentalesProyectoFinal
         {
             try
             {
+                Open();
                 using (cmd = new SqlCommand(_query, con))
                 {
                     for (int i = 0; i < _word.Length; i++)
@@ -122,6 +126,7 @@ namespace TecnicasFundamentalesProyectoFinal
             string value="No encontrado";
             try
             {
+                Open();
                 using (cmd = new SqlCommand(_query, con))
                 {
                     for (int i = 0; i < _word.Length; i++)
@@ -147,9 +152,10 @@ namespace TecnicasFundamentalesProyectoFinal
         {
             try
             {
+                Open();
                 using (cmd = new SqlCommand(_query, con))
                 {
-                    for (int i = 0; i < _word.Length; i++)
+                    for (int i = 0; i < _parameters.Length; i++)
                     {
                         cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }
@@ -158,7 +164,7 @@ namespace TecnicasFundamentalesProyectoFinal
                 Close();
                 return true;
             }
-            catch (Exception) {return false; }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
 
 
         }
@@ -166,6 +172,7 @@ namespace TecnicasFundamentalesProyectoFinal
         {
             try
             {
+                Open();
                 using(cmd = new SqlCommand(_query,con))
                 {   
                     for(int i = 0; i < _parameters.Count(); i++)
@@ -173,6 +180,7 @@ namespace TecnicasFundamentalesProyectoFinal
                         cmd.Parameters.AddWithValue(_parameters[i], _elements[i]);
                     }
                     cmd.ExecuteNonQuery();
+                    Close();
                     return true;
                     
                 }

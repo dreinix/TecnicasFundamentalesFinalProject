@@ -15,9 +15,12 @@ namespace TecnicasFundamentalesProyectoFinal
         public RegistroCS(AlumnosCS alumno)
         {
             _alumno = alumno;
+            _materias = new HashSet<MateriaCS>();
+            _calificaciones = new List<int>();
         }
         public void AgregarCalificacion(List<MateriaCS> materias, List<int> calificaciones)
         {
+            
             foreach (var item in materias)
             {
                 _materias.Add(item);
