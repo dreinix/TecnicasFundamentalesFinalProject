@@ -87,7 +87,7 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void BtRegistrarUsuario_Click(object sender, EventArgs e)
         {
-            RegistrarUsuarioForm registrarUsuario = new RegistrarUsuarioForm("User");
+            AgregarUsuarioForm registrarUsuario = new AgregarUsuarioForm("User");
             this.Hide();
             registrarUsuario.ShowDialog();
             this.Show();

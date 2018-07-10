@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +18,13 @@ namespace TecnicasFundamentalesProyectoFinal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInForm());
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
+            try
+            {
+              Application.Run(new LogInForm());
+            }
+            catch(Exception ex) { }
         }
     }
 }
+    

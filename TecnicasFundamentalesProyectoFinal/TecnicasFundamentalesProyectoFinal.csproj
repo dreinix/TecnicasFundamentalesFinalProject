@@ -64,19 +64,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlumnosCS.cs" />
-    <Compile Include="CrearAlumnoForm.cs">
+    <Compile Include="Buscar\BuscarAlumnosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearAlumnoForm.Designer.cs">
-      <DependentUpon>CrearAlumnoForm.cs</DependentUpon>
+    <Compile Include="Buscar\BuscarAlumnosForm.Designer.cs">
+      <DependentUpon>BuscarAlumnosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar\BuscarMaestrosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\BuscarMaestrosForm.Designer.cs">
+      <DependentUpon>BuscarMaestrosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar\BuscarMateriasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\BuscarMateriasForm.Designer.cs">
+      <DependentUpon>BuscarMateriasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agregar\AgregarAlumnoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agregar\AgregarAlumnoForm.Designer.cs">
+      <DependentUpon>AgregarAlumnoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBaseControl.cs" />
-    <Compile Include="EliminarUsuarioForm.cs">
+    <Compile Include="Eliminar\EliminarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EliminarUsuarioForm.Designer.cs">
+    <Compile Include="Eliminar\EliminarUsuarioForm.Designer.cs">
       <DependentUpon>EliminarUsuarioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaestroCS.cs" />
     <Compile Include="MainPageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,26 +109,53 @@
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MateriaCS.cs" />
-    <Compile Include="RegistrarUsuarioForm.cs">
+    <Compile Include="Agregar\AgregarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistrarUsuarioForm.Designer.cs">
-      <DependentUpon>RegistrarUsuarioForm.cs</DependentUpon>
+    <Compile Include="Agregar\AgregarUsuarioForm.Designer.cs">
+      <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MaterialSkinControl\AddFormToManage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroCS.cs" />
-    <Compile Include="VerAlumnosForm.cs">
+    <Compile Include="Ver\VerAlumnosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VerAlumnosForm.Designer.cs">
+    <Compile Include="Ver\VerAlumnosForm.Designer.cs">
       <DependentUpon>VerAlumnosForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CrearAlumnoForm.resx">
-      <DependentUpon>CrearAlumnoForm.cs</DependentUpon>
+    <Compile Include="Ver\VerCalificacionesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver\VerCalificacionesForm.Designer.cs">
+      <DependentUpon>VerCalificacionesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver\VerMaestrosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver\VerMaestrosForm.Designer.cs">
+      <DependentUpon>VerMaestrosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver\VerMateriasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver\VerMateriasForm.Designer.cs">
+      <DependentUpon>VerMateriasForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Buscar\BuscarAlumnosForm.resx">
+      <DependentUpon>BuscarAlumnosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EliminarUsuarioForm.resx">
+    <EmbeddedResource Include="Buscar\BuscarMaestrosForm.resx">
+      <DependentUpon>BuscarMaestrosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\BuscarMateriasForm.resx">
+      <DependentUpon>BuscarMateriasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agregar\AgregarAlumnoForm.resx">
+      <DependentUpon>AgregarAlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eliminar\EliminarUsuarioForm.resx">
       <DependentUpon>EliminarUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
@@ -118,8 +164,8 @@
     <EmbeddedResource Include="MainPageForm.resx">
       <DependentUpon>MainPageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegistrarUsuarioForm.resx">
-      <DependentUpon>RegistrarUsuarioForm.cs</DependentUpon>
+    <EmbeddedResource Include="Agregar\AgregarUsuarioForm.resx">
+      <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,8 +177,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="VerAlumnosForm.resx">
+    <EmbeddedResource Include="Ver\VerAlumnosForm.resx">
       <DependentUpon>VerAlumnosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver\VerCalificacionesForm.resx">
+      <DependentUpon>VerCalificacionesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver\VerMaestrosForm.resx">
+      <DependentUpon>VerMaestrosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver\VerMateriasForm.resx">
+      <DependentUpon>VerMateriasForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

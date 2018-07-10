@@ -54,7 +54,7 @@ namespace TecnicasFundamentalesProyectoFinal
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             
-            RegistrarUsuarioForm prueba = new RegistrarUsuarioForm("User");
+            AgregarUsuarioForm prueba = new AgregarUsuarioForm("User");
             prueba.MdiParent = this;
             prueba.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             prueba.Show();
@@ -72,15 +72,16 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CrearAlumnoForm registrarAlumno = new CrearAlumnoForm();
+            AgregarAlumnoForm registrarAlumno = new AgregarAlumnoForm();
             registrarAlumno.MdiParent = this;
+            
             registrarAlumno.Show();
 
         }
 
         private void agregarToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            RegistrarUsuarioForm registrar = new RegistrarUsuarioForm(userCat);
+            AgregarUsuarioForm registrar = new AgregarUsuarioForm(userCat);
             registrar.MdiParent = this;
             registrar.MinimizeBox = false;
             registrar.MaximizeBox = false;
@@ -129,12 +130,72 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void MainPage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == this.GetType() && frm != this)
+                {
+                    frm.Dispose();
+                    frm.Close();
+                }
+            }
+            this.Dispose();
         }
 
         private void agregarToolStripMenuItem2_Click(object sender, EventArgs e)
         {
+             
+        }
 
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerAlumnosForm ver = new VerAlumnosForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void listarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            VerMateriasForm materias = new VerMateriasForm();
+            materias.MdiParent = this;
+            materias.Show();
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuscarAlumnosForm ver = new BuscarAlumnosForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buscarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            BuscarMateriasForm ver = new BuscarMateriasForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void buscarToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            BuscarMaestrosForm ver = new BuscarMaestrosForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void listarToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            VerMaestrosForm ver = new VerMaestrosForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
         }
     }
 }

@@ -186,6 +186,50 @@ namespace TecnicasFundamentalesProyectoFinal
                 }
             }catch(Exception ex) { MessageBox.Show(ex.Message); return false; }
         }
+        public DataTable ObtenerTabla(string _query) { 
+            try
+            {
+                Open();
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
+                {
+                    dataAdapter.SelectCommand = new SqlCommand(_query, con);
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    // Populate a new data table and bind it to the BindingSource.
+                    DataTable table = new DataTable();
+                    table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    dataAdapter.Fill(table);
+                    return table;
+                }
+                
 
+            }
+            catch (Exception) { return null; }
+            
+        }
+        public DataTable ObtenerTabla(string _query, string[] _parameters, string[] _word)
+        {
+            try
+            {
+                Open();
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
+                {
+                    dataAdapter.SelectCommand = new SqlCommand(_query,con);
+                    for (int i = 0; i < _parameters.Length; i++)
+                    {
+                        dataAdapter.SelectCommand.Parameters.AddWithValue(_parameters[i], _word[i]);
+                    }
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    // Populate a new data table and bind it to the BindingSource.
+                    DataTable table = new DataTable();
+                    table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    dataAdapter.Fill(table);
+                    return table;
+                }
+
+
+            }
+            catch (Exception) { return null; }
+
+        }
     }
 }
