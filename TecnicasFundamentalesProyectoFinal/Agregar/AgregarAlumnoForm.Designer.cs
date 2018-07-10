@@ -42,6 +42,9 @@
             this.LbIdentificador = new MaterialSkin.Controls.MaterialLabel();
             this.BtGuardar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BtCancelar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BtExaminar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.PBImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PBImage)).BeginInit();
             this.SuspendLayout();
             // 
             // LbNombre
@@ -251,11 +254,42 @@
             this.BtCancelar.UseVisualStyleBackColor = true;
             this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
-            // CrearAlumnoForm
+            // BtExaminar
+            // 
+            this.BtExaminar.AutoSize = true;
+            this.BtExaminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtExaminar.Depth = 0;
+            this.BtExaminar.Icon = null;
+            this.BtExaminar.Location = new System.Drawing.Point(636, 208);
+            this.BtExaminar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtExaminar.Name = "BtExaminar";
+            this.BtExaminar.Primary = true;
+            this.BtExaminar.Size = new System.Drawing.Size(90, 36);
+            this.BtExaminar.TabIndex = 15;
+            this.BtExaminar.Text = "Examinar";
+            this.BtExaminar.UseVisualStyleBackColor = true;
+            this.BtExaminar.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
+            // PBImage
+            // 
+            this.PBImage.BackgroundImage = global::TecnicasFundamentalesProyectoFinal.Properties.Resources.intec;
+            this.PBImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PBImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PBImage.Image = global::TecnicasFundamentalesProyectoFinal.Properties.Resources.intec;
+            this.PBImage.Location = new System.Drawing.Point(527, 77);
+            this.PBImage.Name = "PBImage";
+            this.PBImage.Size = new System.Drawing.Size(199, 125);
+            this.PBImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBImage.TabIndex = 14;
+            this.PBImage.TabStop = false;
+            // 
+            // AgregarAlumnoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 542);
+            this.ClientSize = new System.Drawing.Size(750, 494);
+            this.Controls.Add(this.BtExaminar);
+            this.Controls.Add(this.PBImage);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtGuardar);
             this.Controls.Add(this.LbIdentificador);
@@ -270,9 +304,10 @@
             this.Controls.Add(this.TxtApellido);
             this.Controls.Add(this.LbApellido);
             this.Controls.Add(this.LbNombre);
-            this.Name = "CrearAlumnoForm";
+            this.Name = "AgregarAlumnoForm";
             this.Text = "CrearAlumnoForm";
             this.Load += new System.EventHandler(this.CrearAlumnoForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PBImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +329,7 @@
         private MaterialSkin.Controls.MaterialLabel LbIdentificador;
         private MaterialSkin.Controls.MaterialRaisedButton BtGuardar;
         private MaterialSkin.Controls.MaterialRaisedButton BtCancelar;
+        private MaterialSkin.Controls.MaterialRaisedButton BtExaminar;
+        private System.Windows.Forms.PictureBox PBImage;
     }
 }

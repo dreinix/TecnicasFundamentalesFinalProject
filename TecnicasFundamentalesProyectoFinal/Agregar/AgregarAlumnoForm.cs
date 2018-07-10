@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,20 +15,11 @@ using System.Windows.Forms;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class AgregarAlumnoForm : MaterialForm
+    public partial class AgregarAlumnoForm : Material
     {
         public AgregarAlumnoForm()
         {
             InitializeComponent();
-            MaterialSkinManager MaterialSkinControl = MaterialSkinManager.Instance;
-            MaterialSkinControl.AddFormToManage(this);
-            MaterialSkinControl.Theme = MaterialSkinManager.Themes.LIGHT;
-            MaterialSkinControl.ColorScheme = new ColorScheme(
-                primary: Primary.Blue400, darkPrimary: Primary.Blue500,
-                lightPrimary: Primary.Blue300, accent: Accent.LightBlue200,
-                textShade: TextShade.WHITE
-                );
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
         }
 
         private void CrearAlumnoForm_Load(object sender, EventArgs e)
@@ -48,8 +40,7 @@ namespace TecnicasFundamentalesProyectoFinal
         private void BtGuardar_Click(object sender, EventArgs e)
         {
             try
-            {
-                
+            { 
                 DataBaseControl DBcontrol = new DataBaseControl(DataBaseControl.cPath, "ProjectDatabase.mdf");
                 int id = AlumnosCS.GenerarID();
                 string[] Element = { "@id" };
@@ -60,11 +51,13 @@ namespace TecnicasFundamentalesProyectoFinal
                     values = new string[] { id.ToString() };
                     tempID = DBcontrol.BuscarElemento("Select [ID] from Alumnos where [ID] = @id", Element, values);
                 }
+                MemoryStream ms = new System.IO.MemoryStream();
+                PBImage.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 AlumnosCS estudiante = new AlumnosCS(TxtNombre.Text, TxtApellido.Text, comboBox1.Text, id, TxtCarrera.Text, TxtIdentificadorNacial.Text, DateTime.Parse(maskedTextBox1.Text).ToShortDateString());
-                string[] Elements = new string[] { "@id", "@nombre", "@apellido", "@fecha", "@identifacor", "@estado", "@carrera" };
-                string[] Values = new string[]  { estudiante.ID.ToString(), estudiante.Nombre, estudiante.Apellido, estudiante.FechaNacimiento.ToString(), estudiante.IdentificadorPersonal, estudiante.Estado, estudiante.Carrera };
+                string[] Elements = new string[] { "@id", "@nombre", "@apellido", "@fecha", "@identifacor", "@estado", "@carrera" ,"@image"};
+                string[] Values = new string[]  { estudiante.ID.ToString(), estudiante.Nombre, estudiante.Apellido, estudiante.FechaNacimiento.ToString(), estudiante.IdentificadorPersonal, estudiante.Estado, estudiante.Carrera};
                 
-                if(DBcontrol.Insertar("Insert into Alumnos values(@id,@nombre,@apellido,@fecha,@identifacor,@estado,@carrera)", Elements, Values))
+                if(DBcontrol.Insertar("Insert into Alumnos values(@id,@nombre,@apellido,@fecha,@identifacor,@estado,@carrera,@image)", Elements, Values,ms))
                 {
                     Console.WriteLine(MessageBox.Show(string.Format("{0} fue agregado", estudiante.Nombre)));
                 }
@@ -114,6 +107,17 @@ namespace TecnicasFundamentalesProyectoFinal
         private void BtCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                PBImage.Image = Image.FromFile(dialog.FileName);
+            }
+            PBImage.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }

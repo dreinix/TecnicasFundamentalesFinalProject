@@ -15,20 +15,11 @@ using System.Windows.Forms;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class VerAlumnosForm : MaterialForm
+    public partial class VerAlumnosForm : Material
     {
         public VerAlumnosForm()
         {
             InitializeComponent();
-            MaterialSkinManager MaterialSkinControl = MaterialSkinManager.Instance;
-            MaterialSkinControl.AddFormToManage(this);
-            MaterialSkinControl.Theme = MaterialSkinManager.Themes.LIGHT;
-            MaterialSkinControl.ColorScheme = new ColorScheme(
-                primary: Primary.Blue400, darkPrimary: Primary.Blue500,
-                lightPrimary: Primary.Blue300, accent: Accent.LightBlue200,
-                textShade: TextShade.WHITE
-                );
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
         }
 
 

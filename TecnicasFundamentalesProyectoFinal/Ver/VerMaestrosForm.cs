@@ -12,19 +12,11 @@ using System.Windows.Forms;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class VerMaestrosForm : MaterialForm
+    public partial class VerMaestrosForm : Material
     {
         public VerMaestrosForm()
         {
             InitializeComponent();
-            MaterialSkinManager MaterialSkinControl = MaterialSkinManager.Instance;
-            MaterialSkinControl.AddFormToManage(this);
-            MaterialSkinControl.Theme = MaterialSkinManager.Themes.LIGHT;
-            MaterialSkinControl.ColorScheme = new ColorScheme(
-                primary: Primary.Blue400, darkPrimary: Primary.Blue500,
-                lightPrimary: Primary.Blue300, accent: Accent.LightBlue200,
-                textShade: TextShade.WHITE
-                );
         }
 
         private void VerMaestrosForm_Load(object sender, EventArgs e)

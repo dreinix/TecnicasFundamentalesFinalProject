@@ -12,19 +12,11 @@ using System.Windows.Forms;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class VerCalificacionesForm : MaterialForm
+    public partial class VerCalificacionesForm : Material
     {
         public VerCalificacionesForm()
         {
             InitializeComponent();
-            MaterialSkinManager MaterialSkinControl = MaterialSkinManager.Instance;
-            MaterialSkinControl.AddFormToManage(this);
-            MaterialSkinControl.Theme = MaterialSkinManager.Themes.LIGHT;
-            MaterialSkinControl.ColorScheme = new ColorScheme(
-                primary: Primary.Blue400, darkPrimary: Primary.Blue500,
-                lightPrimary: Primary.Blue300, accent: Accent.LightBlue200,
-                textShade: TextShade.WHITE
-                );
         }
         private void VerCalificacionesForm_Load(object sender, EventArgs e)
         {
@@ -34,6 +26,11 @@ namespace TecnicasFundamentalesProyectoFinal
             DGVCalificacion.DataSource = CalSource;
             DGVCalificacion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGVCalificacion.ReadOnly = true;
+        }
+
+        private void BtSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

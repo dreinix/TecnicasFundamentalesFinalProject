@@ -48,6 +48,7 @@
             this.BtSalir.TabIndex = 8;
             this.BtSalir.Text = "Salir";
             this.BtSalir.UseVisualStyleBackColor = true;
+            this.BtSalir.Click += new System.EventHandler(this.BtSalir_Click);
             // 
             // DGVCalificacion
             // 

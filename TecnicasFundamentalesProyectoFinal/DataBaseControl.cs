@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
@@ -159,6 +160,27 @@ namespace TecnicasFundamentalesProyectoFinal
                     {
                         cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }
+                    cmd.ExecuteNonQuery();
+                }
+                Close();
+                return true;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
+
+
+        }
+        public bool Insertar(string _query, string[] _parameters, string[] _word, MemoryStream image)
+        {
+            try
+            {
+                Open();
+                using (cmd = new SqlCommand(_query, con))
+                {
+                    for (int i = 0; i < _word.Length; i++)
+                    {
+                        cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
+                    }
+                    cmd.Parameters.AddWithValue(_parameters[_parameters.Length - 1], image.GetBuffer());
                     cmd.ExecuteNonQuery();
                 }
                 Close();

@@ -12,9 +12,9 @@ using MaterialSkin.Controls;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class AgregarUsuarioForm : MaterialForm
+    public partial class AgregarUsuarioForm : Material
     {
-        string cat,addCat="";
+        string cat;
         public AgregarUsuarioForm(string _cat)
         {
             InitializeComponent();

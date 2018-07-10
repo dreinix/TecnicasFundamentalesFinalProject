@@ -63,6 +63,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agregar\AgregarMaestroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agregar\AgregarMaestroForm.Designer.cs">
+      <DependentUpon>AgregarMaestroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agregar\AgregarMateriaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agregar\AgregarMateriaForm.Designer.cs">
+      <DependentUpon>AgregarMateriaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agregar\AgregarRegistroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agregar\AgregarRegistroForm.Designer.cs">
+      <DependentUpon>AgregarRegistroForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlumnosCS.cs" />
     <Compile Include="Buscar\BuscarAlumnosForm.cs">
       <SubType>Form</SubType>
@@ -115,6 +133,12 @@
     <Compile Include="Agregar\AgregarUsuarioForm.Designer.cs">
       <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Material.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Material.Designer.cs">
+      <DependentUpon>Material.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaterialSkinControl\AddFormToManage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,6 +167,15 @@
     <Compile Include="Ver\VerMateriasForm.Designer.cs">
       <DependentUpon>VerMateriasForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Agregar\AgregarMaestroForm.resx">
+      <DependentUpon>AgregarMaestroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agregar\AgregarMateriaForm.resx">
+      <DependentUpon>AgregarMateriaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agregar\AgregarRegistroForm.resx">
+      <DependentUpon>AgregarRegistroForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buscar\BuscarAlumnosForm.resx">
       <DependentUpon>BuscarAlumnosForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Agregar\AgregarUsuarioForm.resx">
       <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Material.resx">
+      <DependentUpon>Material.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -217,15 +253,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\intec.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ProjectDataBase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectDataBase_log.ldf">
-      <DependentUpon>ProjectDataBase.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

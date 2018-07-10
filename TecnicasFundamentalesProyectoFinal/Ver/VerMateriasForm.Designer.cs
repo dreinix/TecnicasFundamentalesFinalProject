@@ -47,6 +47,7 @@
             this.BtSalir.TabIndex = 6;
             this.BtSalir.Text = "Salir";
             this.BtSalir.UseVisualStyleBackColor = true;
+            this.BtSalir.Click += new System.EventHandler(this.BtSalir_Click);
             // 
             // DGVMaterias
             // 

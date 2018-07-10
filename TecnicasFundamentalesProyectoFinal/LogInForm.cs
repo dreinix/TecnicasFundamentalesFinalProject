@@ -12,7 +12,7 @@ using MaterialSkin.Controls;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class LogInForm : MaterialForm
+    public partial class LogInForm : Material
     {
         public LogInForm()
         {

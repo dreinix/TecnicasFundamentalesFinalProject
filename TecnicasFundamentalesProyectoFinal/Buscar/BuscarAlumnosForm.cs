@@ -12,19 +12,11 @@ using System.Windows.Forms;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class BuscarAlumnosForm : MaterialForm
+    public partial class BuscarAlumnosForm : Material
     {
         public BuscarAlumnosForm()
         {
             InitializeComponent();
-            MaterialSkinManager MaterialSkinControl = MaterialSkinManager.Instance;
-            MaterialSkinControl.AddFormToManage(this);
-            MaterialSkinControl.Theme = MaterialSkinManager.Themes.LIGHT;
-            MaterialSkinControl.ColorScheme = new ColorScheme(
-                primary: Primary.Blue400, darkPrimary: Primary.Blue500,
-                lightPrimary: Primary.Blue300, accent: Accent.LightBlue200,
-                textShade: TextShade.WHITE
-                );
             this.Size = new Size(1589, 750);
         }
 
@@ -53,6 +45,11 @@ namespace TecnicasFundamentalesProyectoFinal
         private void BtSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TxtBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

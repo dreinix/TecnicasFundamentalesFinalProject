@@ -12,20 +12,12 @@ using System.Windows.Forms;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class MainPageForm : MaterialForm
+    public partial class MainPageForm : Material
     {
         string userCat;
         public MainPageForm(string _userCat)
         {
             InitializeComponent();
-            MaterialSkinManager MaterialSkinControl = MaterialSkinManager.Instance;
-            MaterialSkinControl.AddFormToManage(this);
-            MaterialSkinControl.Theme = MaterialSkinManager.Themes.LIGHT;
-            MaterialSkinControl.ColorScheme = new ColorScheme(
-                primary: Primary.Blue400, darkPrimary: Primary.Blue500,
-                lightPrimary: Primary.Blue300, accent: Accent.LightBlue200,
-                textShade: TextShade.WHITE
-                );
             userCat = _userCat;
 
             if (userCat == "Adm" || userCat == "Develop")
@@ -143,7 +135,9 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void agregarToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-             
+            Agregar.AgregarMateriaForm agregar = new Agregar.AgregarMateriaForm();
+            agregar.MdiParent = this;
+            agregar.Show();
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,6 +189,20 @@ namespace TecnicasFundamentalesProyectoFinal
             VerMaestrosForm ver = new VerMaestrosForm();
             ver.MdiParent = this;
             ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Agregar.AgregarRegistroForm agregar = new Agregar.AgregarRegistroForm();
+            agregar.MdiParent = this;
+            agregar.Show();
+        }
+
+        private void agregarToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Agregar.AgregarMaestroForm ver = new Agregar.AgregarMaestroForm();
+            ver.MdiParent = this;
             ver.Show();
         }
     }

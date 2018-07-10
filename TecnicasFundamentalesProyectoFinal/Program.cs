@@ -23,7 +23,7 @@ namespace TecnicasFundamentalesProyectoFinal
             {
               Application.Run(new LogInForm());
             }
-            catch(Exception ex) { }
+            catch(Exception) { }
         }
     }
 }

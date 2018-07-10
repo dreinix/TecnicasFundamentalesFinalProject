@@ -12,19 +12,11 @@ using System.Windows.Forms;
 
 namespace TecnicasFundamentalesProyectoFinal
 {
-    public partial class BuscarMateriasForm : MaterialForm
+    public partial class BuscarMateriasForm : Material
     {
         public BuscarMateriasForm()
         {
             InitializeComponent();
-            MaterialSkinManager MaterialSkinControl = MaterialSkinManager.Instance;
-            MaterialSkinControl.AddFormToManage(this);
-            MaterialSkinControl.Theme = MaterialSkinManager.Themes.LIGHT;
-            MaterialSkinControl.ColorScheme = new ColorScheme(
-                primary: Primary.Blue400, darkPrimary: Primary.Blue500,
-                lightPrimary: Primary.Blue300, accent: Accent.LightBlue200,
-                textShade: TextShade.WHITE
-                );
         }
 
         private void BuscarMateriasForm_Load(object sender, EventArgs e)
@@ -43,7 +35,7 @@ namespace TecnicasFundamentalesProyectoFinal
             BindingSource MatSource = new BindingSource();
             string[] parameters = { "@word" };
             string[] value = {TxtBuscar.Text};
-            MatSource.DataSource = DBControl.ObtenerTabla("Select * from Materias where [Nombre] like '%'+@word+'%' or [Codigo] like '%'+@word+'%' ", parameters, value);
+            MatSource.DataSource = DBControl.ObtenerTabla("Select * from Materias where [Nombre] like '%'+@word+'%' or [Clave] like '%'+@word+'%' ", parameters, value);
             DGVMaterias.DataSource = MatSource;
             DGVMaterias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGVMaterias.ReadOnly = true;
