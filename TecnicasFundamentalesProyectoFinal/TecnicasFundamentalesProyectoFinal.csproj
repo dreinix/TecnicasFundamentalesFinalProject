@@ -106,7 +106,37 @@
     <Compile Include="Agregar\AgregarAlumnoForm.Designer.cs">
       <DependentUpon>AgregarAlumnoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buscar\BuscarRegistroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\BuscarRegistroForm.Designer.cs">
+      <DependentUpon>BuscarRegistroForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBaseControl.cs" />
+    <Compile Include="Eliminar\EliminarAlumnoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eliminar\EliminarAlumnoForm.Designer.cs">
+      <DependentUpon>EliminarAlumnoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eliminar\EliminarMaestroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eliminar\EliminarMaestroForm.Designer.cs">
+      <DependentUpon>EliminarMaestroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eliminar\EliminarMateriaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eliminar\EliminarMateriaForm.Designer.cs">
+      <DependentUpon>EliminarMateriaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eliminar\EliminarRegistroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eliminar\EliminarRegistroForm.Designer.cs">
+      <DependentUpon>EliminarRegistroForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Eliminar\EliminarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +170,24 @@
       <DependentUpon>Material.cs</DependentUpon>
     </Compile>
     <Compile Include="MaterialSkinControl\AddFormToManage.cs" />
+    <Compile Include="Modificar\ModificarAlumnoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar\ModificarAlumnoForm.Designer.cs">
+      <DependentUpon>ModificarAlumnoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar\ModificarMaestrosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar\ModificarMaestrosForm.Designer.cs">
+      <DependentUpon>ModificarMaestrosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar\ModificarMateriasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar\ModificarMateriasForm.Designer.cs">
+      <DependentUpon>ModificarMateriasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroCS.cs" />
@@ -188,6 +236,21 @@
     <EmbeddedResource Include="Agregar\AgregarAlumnoForm.resx">
       <DependentUpon>AgregarAlumnoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\BuscarRegistroForm.resx">
+      <DependentUpon>BuscarRegistroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eliminar\EliminarAlumnoForm.resx">
+      <DependentUpon>EliminarAlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eliminar\EliminarMaestroForm.resx">
+      <DependentUpon>EliminarMaestroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eliminar\EliminarMateriaForm.resx">
+      <DependentUpon>EliminarMateriaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eliminar\EliminarRegistroForm.resx">
+      <DependentUpon>EliminarRegistroForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Eliminar\EliminarUsuarioForm.resx">
       <DependentUpon>EliminarUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +265,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Material.resx">
       <DependentUpon>Material.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar\ModificarAlumnoForm.resx">
+      <DependentUpon>ModificarAlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar\ModificarMaestrosForm.resx">
+      <DependentUpon>ModificarMaestrosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar\ModificarMateriasForm.resx">
+      <DependentUpon>ModificarMateriasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

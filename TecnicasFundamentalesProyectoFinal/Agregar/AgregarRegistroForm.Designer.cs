@@ -76,6 +76,7 @@
             this.BtCancelar.TabIndex = 15;
             this.BtCancelar.Text = "Cancelar";
             this.BtCancelar.UseVisualStyleBackColor = true;
+            this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
             // BtVincular
             // 

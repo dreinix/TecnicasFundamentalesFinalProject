@@ -165,7 +165,9 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Modificar.ModificarAlumnoForm mod = new Modificar.ModificarAlumnoForm();
+            mod.MdiParent = this;
+            mod.Show();
         }
 
         private void buscarToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -204,6 +206,109 @@ namespace TecnicasFundamentalesProyectoFinal
             Agregar.AgregarMaestroForm ver = new Agregar.AgregarMaestroForm();
             ver.MdiParent = this;
             ver.Show();
+        }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Modificar.ModificarMateriasForm mod = new Modificar.ModificarMateriasForm();
+            mod.MdiParent = this;
+            mod.Show();
+        }
+
+        private void modificarToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Modificar.ModificarMaestrosForm mod = new Modificar.ModificarMaestrosForm();
+            mod.MdiParent = this;
+            mod.Show();
+        }
+
+        private void listarToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            VerMaestrosForm ver = new VerMaestrosForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            VerMateriasForm materias = new VerMateriasForm();
+            materias.MdiParent = this;
+            materias.Show();
+        }
+
+        private void buscarToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            BuscarMaestrosForm ver = new BuscarMaestrosForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            BuscarMateriasForm ver = new BuscarMateriasForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            VerAlumnosForm ver = new VerAlumnosForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            BuscarAlumnosForm ver = new BuscarAlumnosForm();
+            ver.MdiParent = this;
+            ver.WindowState = FormWindowState.Maximized;
+            ver.Show();
+        }
+
+        private void listarToolStripMenuItem1_Click(object sender, EventArgs e) 
+        {
+            Buscar.BuscarRegistroForm buscar = new Buscar.BuscarRegistroForm();
+            buscar.MdiParent = this;
+            buscar.Show();
+        }
+
+        private void eliminarToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Eliminar.EliminarMaestroForm eliminar = new Eliminar.EliminarMaestroForm();
+            eliminar.MdiParent = this;
+            eliminar.Show();
+        }
+
+        private void eliminarToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            Eliminar.EliminarMateriaForm eliminar = new Eliminar.EliminarMateriaForm();
+            eliminar.MdiParent = this;
+            eliminar.Show();
+        }
+
+        private void eliminarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Eliminar.EliminarAlumnoForm eliminar = new Eliminar.EliminarAlumnoForm();
+            eliminar.MdiParent = this;
+            eliminar.Show();
+        }
+
+        private void eliminarToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Eliminar.EliminarRegistroForm eliminar = new Eliminar.EliminarRegistroForm();
+            eliminar.MdiParent = this;
+            eliminar.Show();
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            Buscar.BuscarRegistroForm buscar = new Buscar.BuscarRegistroForm();
+            buscar.MdiParent = this;
+            buscar.Show();
         }
     }
 }

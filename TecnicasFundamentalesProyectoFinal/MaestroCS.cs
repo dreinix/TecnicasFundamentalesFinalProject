@@ -16,5 +16,6 @@ namespace TecnicasFundamentalesProyectoFinal
             _nombre = nombre;
             _id = id;
         }
+        
     }
 }

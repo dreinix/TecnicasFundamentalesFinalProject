@@ -46,6 +46,12 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
             {
                 MessageBox.Show("Es imposible vincular una materia a un estudiante si uno de los dos no existe");
             }
+            else
+            {
+                string[] Parameters = new string[] { "@Alm", "@Mat" };
+                string[] values = new string[] { TxtID.Text, TxtClave.Text };
+                DbControl.Insertar("Insert into [Registro] values (@Alm,@Mat)", parameters, values);
+            }
         }
 
         private void TxtID_KeyPress(object sender, KeyPressEventArgs e)
@@ -58,6 +64,11 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
             {
                 e.Handled = true;
             }
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

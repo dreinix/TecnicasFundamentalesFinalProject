@@ -12,30 +12,33 @@ using System.IO;
 namespace TecnicasFundamentalesProyectoFinal
 {
     public class DataBaseControl
-    {
+    {   
         SqlConnection con = new SqlConnection();
         public static string cPath = System.IO.Path.GetFullPath(@"..\..\");
         string _location="";
         SqlCommand cmd = new SqlCommand();
-        public DataBaseControl(string _rute,string _DataBaseName)
-        {
-            _location = _rute + _DataBaseName;
-        }
+
+        public DataBaseControl(string _rute, string _DataBaseName) => _location = _rute + _DataBaseName;
+
         private void Open()
         {
-            try
+            if (File.Exists(_location))
             {
-                con.Close();
-                String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
-                con.ConnectionString = path;
-                con.Open();
+                try
+                {
+                    con.Close();
+                    String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
+                    con.ConnectionString = path;
+                    con.Open();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); };
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); };
+            else
+            {
+                MessageBox.Show("Base de datos no encontrada");
+            }
         }
-        public void Close()
-        {
-            con.Close();
-        }
+        public void Close() => con.Close();
         public List<SqlDataReader> Buscar(string _query)
         {
             Open();
@@ -166,8 +169,6 @@ namespace TecnicasFundamentalesProyectoFinal
                 return true;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
-
-
         }
         public bool Insertar(string _query, string[] _parameters, string[] _word, MemoryStream image)
         {
@@ -176,7 +177,7 @@ namespace TecnicasFundamentalesProyectoFinal
                 Open();
                 using (cmd = new SqlCommand(_query, con))
                 {
-                    for (int i = 0; i < _word.Length; i++)
+                    for (int i = 0; i < _word.Length-1; i++)
                     {
                         cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }
@@ -236,6 +237,31 @@ namespace TecnicasFundamentalesProyectoFinal
                 using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
                 {
                     dataAdapter.SelectCommand = new SqlCommand(_query,con);
+                    for (int i = 0; i < _parameters.Length; i++)
+                    {
+                        dataAdapter.SelectCommand.Parameters.AddWithValue(_parameters[i], _word[i]);
+                    }
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    // Populate a new data table and bind it to the BindingSource.
+                    DataTable table = new DataTable();
+                    table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    dataAdapter.Fill(table);
+                    return table;
+                }
+
+
+            }
+            catch (Exception) { return null; }
+
+        }
+        public DataTable ActualizarTabla(string _query, string[] _parameters, string[] _word)
+        {
+            try
+            {
+                Open();
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
+                {
+                    dataAdapter.SelectCommand = new SqlCommand(_query, con);
                     for (int i = 0; i < _parameters.Length; i++)
                     {
                         dataAdapter.SelectCommand.Parameters.AddWithValue(_parameters[i], _word[i]);

@@ -28,6 +28,10 @@ namespace TecnicasFundamentalesProyectoFinal
             _fechaNacimiento = fechaNacimiento;
         }
 
+        public AlumnosCS()
+        {
+        }
+
         public string FechaNacimiento
         {
             get { return _fechaNacimiento; }
