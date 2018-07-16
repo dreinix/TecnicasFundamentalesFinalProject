@@ -83,6 +83,7 @@
             this.TxtBuscar.TabIndex = 16;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.UseSystemPasswordChar = false;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // DGVAlumnos
             // 

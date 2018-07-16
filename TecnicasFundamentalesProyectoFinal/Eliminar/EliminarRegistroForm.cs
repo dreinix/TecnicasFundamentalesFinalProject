@@ -36,7 +36,7 @@ namespace TecnicasFundamentalesProyectoFinal.Eliminar
                 string[] _parameters = { "@userN","@Materia" };
                 string[] _element = { TxtUserName.Text,TxtMateria.Text };
 
-                foreach (string[] item in DBControl.Buscar("Select [Materia] from [Registro] where [ID] like '%' + @userN + '%' and [Materia] like '%' + @Materia + '%'", _parameters, _element, 1))
+                foreach (string[] item in DBControl.Buscar("Select [Materia] from [Registro] where [Alumno] = @userN ", _parameters, _element, 1))
                 {
                     foreach (var it in item)
                     {
@@ -52,7 +52,7 @@ namespace TecnicasFundamentalesProyectoFinal.Eliminar
             DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
             string[] _parameters = { "@userN", "@Materia" };
             string[] _element = { TxtUserName.Text, TxtMateria.Text };
-            if (DBControl.Eliminar("Select from [Registro] where [ID] like '%' + @userN + '%' and [Materia] like '%' + @Materia + '%'", _parameters, _element))
+            if (DBControl.Eliminar("Delete from [Registro] where [Alumno] = @userN and [Materia] = @Materia ", _parameters, _element))
             {
                 MessageBox.Show("Registro eliminado con exito");
                 LVUsuarios.Clear();

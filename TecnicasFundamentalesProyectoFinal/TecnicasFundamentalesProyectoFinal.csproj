@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agregar\AgregaCalificaciónForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agregar\AgregaCalificaciónForm.Designer.cs">
+      <DependentUpon>AgregaCalificaciónForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Agregar\AgregarMaestroForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,12 +203,6 @@
     <Compile Include="Ver\VerAlumnosForm.Designer.cs">
       <DependentUpon>VerAlumnosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ver\VerCalificacionesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ver\VerCalificacionesForm.Designer.cs">
-      <DependentUpon>VerCalificacionesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ver\VerMaestrosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +215,9 @@
     <Compile Include="Ver\VerMateriasForm.Designer.cs">
       <DependentUpon>VerMateriasForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Agregar\AgregaCalificaciónForm.resx">
+      <DependentUpon>AgregaCalificaciónForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Agregar\AgregarMaestroForm.resx">
       <DependentUpon>AgregarMaestroForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,9 +290,6 @@
     </Compile>
     <EmbeddedResource Include="Ver\VerAlumnosForm.resx">
       <DependentUpon>VerAlumnosForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ver\VerCalificacionesForm.resx">
-      <DependentUpon>VerCalificacionesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver\VerMaestrosForm.resx">
       <DependentUpon>VerMaestrosForm.cs</DependentUpon>

@@ -54,7 +54,7 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
         {
             DataBaseControl DbControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
             string[] parameters = { "@id", "@nombre", "@credito" };
-            string[] values = { TxtClave.Text, TxtNombre.Text, TxtCredito.Text };
+            string[] values = { TxtClave.Text, TxtNombre.Text, comboBox1.SelectedValue.ToString() };
             if (DbControl.Insertar("Insert into [Materias] values(@id,@nombre,@credito)", parameters, values))
             {
                 MessageBox.Show(string.Format("{0} agregado", TxtNombre.Text));

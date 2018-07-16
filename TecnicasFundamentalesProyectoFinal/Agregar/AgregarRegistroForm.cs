@@ -50,7 +50,16 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
             {
                 string[] Parameters = new string[] { "@Alm", "@Mat" };
                 string[] values = new string[] { TxtID.Text, TxtClave.Text };
-                DbControl.Insertar("Insert into [Registro] values (@Alm,@Mat)", parameters, values);
+                if (!DbControl.Buscar("Select * from [Registro] where [Alumno] = @Alm and [Materia] = @Mat",Parameters,values))
+                {
+                    DbControl.Insertar("Insert into  [Registro] ([Alumno],[Materia]) values (@Alm,@Mat)", Parameters, values);
+                }
+                else
+                {
+                    MessageBox.Show("El alumno ya está inscrito en esta materia");
+                }
+                
+                
             }
         }
 

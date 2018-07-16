@@ -310,5 +310,12 @@ namespace TecnicasFundamentalesProyectoFinal
             buscar.MdiParent = this;
             buscar.Show();
         }
+
+        private void calificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Agregar.AgregaCalificaciónForm agregar = new Agregar.AgregaCalificaciónForm();
+            agregar.MdiParent = this;
+            agregar.Show();
+        }
     }
 }
