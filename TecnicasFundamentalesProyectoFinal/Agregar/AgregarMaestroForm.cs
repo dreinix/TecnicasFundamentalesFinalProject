@@ -18,6 +18,13 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
             InitializeComponent();
         }
 
+        private bool Verificar()
+        {
+            if (TxtNombre.TextLength > 0 && TxtID.TextLength > 0)
+                return true;
+            else
+                return false;
+        }
         private void AgregarMateriasForm_Load(object sender, EventArgs e)
         {
 
@@ -37,17 +44,22 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
             {
                 MemoryStream ms = new System.IO.MemoryStream();
                 PBImage.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                DataBaseControl DbControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+                DataBaseControl DbControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
                 string[] parameters = { "@id", "@nombre", "@image" };
                 string[] values = { TxtID.Text, TxtNombre.Text};
                 if (DbControl.Insertar("Insert into Maestros values (@id,@nombre,@image)", parameters, values,ms))
                 {
-                    MessageBox.Show("{0} agregado", TxtNombre.Text);
+                    MessageBox.Show(string.Format("{0} agregado", TxtNombre.Text));
+                    TxtID.Clear();
+                    TxtNombre.Clear();
+                    PBImage.Image = Image.FromFile("intec.png");
+                    Verificar();
                 }
                 else
                 {
-                    MessageBox.Show("{0} no agregado", TxtNombre.Text);
+                    MessageBox.Show(string.Format("{0} no agregado", TxtNombre.Text));
                 }
+
             }
             catch (Exception)
             {
@@ -74,6 +86,18 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+        
+        private new void TextChanged(object sender, EventArgs e)
+        {
+            if (Verificar())
+            {
+                BtGuardar.Enabled = true;
+            }
+            else
+            {
+                BtGuardar.Enabled = false;
+            }
         }
     }
 }

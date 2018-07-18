@@ -33,12 +33,12 @@
             this.TxtApellido = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.TxtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.LbEstado = new MaterialSkin.Controls.MaterialLabel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBEstado = new System.Windows.Forms.ComboBox();
             this.LbCarrera = new MaterialSkin.Controls.MaterialLabel();
             this.TxtCarrera = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.TxtIdentificadorNacial = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.MTBFecha = new System.Windows.Forms.MaskedTextBox();
             this.LbIdentificador = new MaterialSkin.Controls.MaterialLabel();
             this.BtGuardar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BtCancelar = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -91,6 +91,7 @@
             this.TxtApellido.UseSystemPasswordChar = false;
             this.TxtApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtApellido_KeyDown);
             this.TxtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtApellido_KeyPress);
+            this.TxtApellido.TextChanged += new System.EventHandler(this.TxtChanted);
             // 
             // TxtNombre
             // 
@@ -108,6 +109,7 @@
             this.TxtNombre.TabIndex = 0;
             this.TxtNombre.TabStop = false;
             this.TxtNombre.UseSystemPasswordChar = false;
+            this.TxtNombre.TextChanged += new System.EventHandler(this.TxtChanted);
             // 
             // LbEstado
             // 
@@ -122,20 +124,20 @@
             this.LbEstado.TabIndex = 4;
             this.LbEstado.Text = "Estado Inicial";
             // 
-            // comboBox1
+            // CBEstado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CBEstado.FormattingEnabled = true;
+            this.CBEstado.Items.AddRange(new object[] {
             "APA",
             "Normal",
             "En proceso",
             "Retirado"});
-            this.comboBox1.Location = new System.Drawing.Point(264, 345);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 5;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
+            this.CBEstado.Location = new System.Drawing.Point(264, 345);
+            this.CBEstado.Name = "CBEstado";
+            this.CBEstado.Size = new System.Drawing.Size(121, 21);
+            this.CBEstado.TabIndex = 5;
+            this.CBEstado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.CBEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
             // 
             // LbCarrera
             // 
@@ -167,6 +169,7 @@
             this.TxtCarrera.TabStop = false;
             this.TxtCarrera.UseSystemPasswordChar = false;
             this.TxtCarrera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCarrera_KeyPress);
+            this.TxtCarrera.TextChanged += new System.EventHandler(this.TxtChanted);
             // 
             // TxtIdentificadorNacial
             // 
@@ -184,6 +187,7 @@
             this.TxtIdentificadorNacial.TabIndex = 4;
             this.TxtIdentificadorNacial.TabStop = false;
             this.TxtIdentificadorNacial.UseSystemPasswordChar = false;
+            this.TxtIdentificadorNacial.TextChanged += new System.EventHandler(this.TxtChanted);
             // 
             // materialLabel1
             // 
@@ -198,15 +202,16 @@
             this.materialLabel1.TabIndex = 9;
             this.materialLabel1.Text = "Fecha de nacimiento";
             // 
-            // maskedTextBox1
+            // MTBFecha
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(16, 236);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(149, 20);
-            this.maskedTextBox1.TabIndex = 2;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            this.maskedTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedTextBox1_KeyPress);
+            this.MTBFecha.Location = new System.Drawing.Point(16, 236);
+            this.MTBFecha.Mask = "00/00/0000";
+            this.MTBFecha.Name = "MTBFecha";
+            this.MTBFecha.Size = new System.Drawing.Size(149, 20);
+            this.MTBFecha.TabIndex = 2;
+            this.MTBFecha.ValidatingType = typeof(System.DateTime);
+            this.MTBFecha.TextChanged += new System.EventHandler(this.TxtChanted);
+            this.MTBFecha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedTextBox1_KeyPress);
             // 
             // LbIdentificador
             // 
@@ -293,12 +298,12 @@
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtGuardar);
             this.Controls.Add(this.LbIdentificador);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.MTBFecha);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.TxtIdentificadorNacial);
             this.Controls.Add(this.TxtCarrera);
             this.Controls.Add(this.LbCarrera);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CBEstado);
             this.Controls.Add(this.LbEstado);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.TxtApellido);
@@ -320,12 +325,12 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField TxtApellido;
         private MaterialSkin.Controls.MaterialSingleLineTextField TxtNombre;
         private MaterialSkin.Controls.MaterialLabel LbEstado;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBEstado;
         private MaterialSkin.Controls.MaterialLabel LbCarrera;
         private MaterialSkin.Controls.MaterialSingleLineTextField TxtCarrera;
         private MaterialSkin.Controls.MaterialSingleLineTextField TxtIdentificadorNacial;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox MTBFecha;
         private MaterialSkin.Controls.MaterialLabel LbIdentificador;
         private MaterialSkin.Controls.MaterialRaisedButton BtGuardar;
         private MaterialSkin.Controls.MaterialRaisedButton BtCancelar;

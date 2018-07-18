@@ -35,7 +35,7 @@
             this.LbCredito = new MaterialSkin.Controls.MaterialLabel();
             this.BtCancelar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BtGuardar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBCredito = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // LbClave
@@ -67,6 +67,8 @@
             this.TxtClave.TabIndex = 1;
             this.TxtClave.TabStop = false;
             this.TxtClave.UseSystemPasswordChar = false;
+            this.TxtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtClave_KeyPress);
+            this.TxtClave.TextChanged += new System.EventHandler(this.TxtClave_TextChanged);
             // 
             // TxtNombre
             // 
@@ -84,7 +86,9 @@
             this.TxtNombre.TabIndex = 3;
             this.TxtNombre.TabStop = false;
             this.TxtNombre.UseSystemPasswordChar = false;
+            this.TxtNombre.Click += new System.EventHandler(this.TxtNombre_Click);
             this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.materialSingleLineTextField2_KeyPress);
+            this.TxtNombre.TextChanged += new System.EventHandler(this.TxtNombre_TextChanged);
             // 
             // LbNombre
             // 
@@ -145,26 +149,27 @@
             this.BtGuardar.UseVisualStyleBackColor = true;
             this.BtGuardar.Click += new System.EventHandler(this.BtGuardar_Click);
             // 
-            // comboBox1
+            // CBCredito
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CBCredito.FormattingEnabled = true;
+            this.CBCredito.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.comboBox1.Location = new System.Drawing.Point(17, 204);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 21);
-            this.comboBox1.TabIndex = 9;
+            this.CBCredito.Location = new System.Drawing.Point(17, 204);
+            this.CBCredito.Name = "CBCredito";
+            this.CBCredito.Size = new System.Drawing.Size(195, 21);
+            this.CBCredito.TabIndex = 9;
+            this.CBCredito.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
             // AgregarMateriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 325);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CBCredito);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtGuardar);
             this.Controls.Add(this.LbCredito);
@@ -189,6 +194,6 @@
         private MaterialSkin.Controls.MaterialLabel LbCredito;
         private MaterialSkin.Controls.MaterialRaisedButton BtCancelar;
         private MaterialSkin.Controls.MaterialRaisedButton BtGuardar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBCredito;
     }
 }

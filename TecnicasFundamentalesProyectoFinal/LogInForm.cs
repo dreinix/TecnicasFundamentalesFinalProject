@@ -32,7 +32,7 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void InisiarSesion()
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             string[] parameters = { "@id", "@pass" };
             string[] elements = { TxtUserName.Text, TxtPassword.Text };
             TxtUserName.Clear();

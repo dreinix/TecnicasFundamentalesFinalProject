@@ -32,8 +32,8 @@
             this.LBClave = new MaterialSkin.Controls.MaterialLabel();
             this.BtCancelar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.BtVincular = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.TxtID = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.TxtClave = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.CBAlumno = new System.Windows.Forms.ComboBox();
+            this.CBMateria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // LBAlumn
@@ -68,7 +68,7 @@
             this.BtCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtCancelar.Depth = 0;
             this.BtCancelar.Icon = null;
-            this.BtCancelar.Location = new System.Drawing.Point(154, 144);
+            this.BtCancelar.Location = new System.Drawing.Point(105, 215);
             this.BtCancelar.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtCancelar.Name = "BtCancelar";
             this.BtCancelar.Primary = true;
@@ -84,7 +84,7 @@
             this.BtVincular.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtVincular.Depth = 0;
             this.BtVincular.Icon = null;
-            this.BtVincular.Location = new System.Drawing.Point(154, 90);
+            this.BtVincular.Location = new System.Drawing.Point(12, 215);
             this.BtVincular.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtVincular.Name = "BtVincular";
             this.BtVincular.Primary = true;
@@ -94,48 +94,33 @@
             this.BtVincular.UseVisualStyleBackColor = true;
             this.BtVincular.Click += new System.EventHandler(this.BtVincular_Click);
             // 
-            // TxtID
+            // CBAlumno
             // 
-            this.TxtID.Depth = 0;
-            this.TxtID.Hint = "";
-            this.TxtID.Location = new System.Drawing.Point(16, 102);
-            this.TxtID.MaxLength = 32767;
-            this.TxtID.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TxtID.Name = "TxtID";
-            this.TxtID.PasswordChar = '\0';
-            this.TxtID.SelectedText = "";
-            this.TxtID.SelectionLength = 0;
-            this.TxtID.SelectionStart = 0;
-            this.TxtID.Size = new System.Drawing.Size(112, 23);
-            this.TxtID.TabIndex = 16;
-            this.TxtID.TabStop = false;
-            this.TxtID.UseSystemPasswordChar = false;
-            this.TxtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtID_KeyPress);
+            this.CBAlumno.FormattingEnabled = true;
+            this.CBAlumno.Location = new System.Drawing.Point(12, 99);
+            this.CBAlumno.Name = "CBAlumno";
+            this.CBAlumno.Size = new System.Drawing.Size(121, 21);
+            this.CBAlumno.TabIndex = 18;
+            this.CBAlumno.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.CBAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
             // 
-            // TxtClave
+            // CBMateria
             // 
-            this.TxtClave.Depth = 0;
-            this.TxtClave.Hint = "";
-            this.TxtClave.Location = new System.Drawing.Point(16, 156);
-            this.TxtClave.MaxLength = 32767;
-            this.TxtClave.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TxtClave.Name = "TxtClave";
-            this.TxtClave.PasswordChar = '\0';
-            this.TxtClave.SelectedText = "";
-            this.TxtClave.SelectionLength = 0;
-            this.TxtClave.SelectionStart = 0;
-            this.TxtClave.Size = new System.Drawing.Size(112, 23);
-            this.TxtClave.TabIndex = 17;
-            this.TxtClave.TabStop = false;
-            this.TxtClave.UseSystemPasswordChar = false;
+            this.CBMateria.FormattingEnabled = true;
+            this.CBMateria.Location = new System.Drawing.Point(12, 168);
+            this.CBMateria.Name = "CBMateria";
+            this.CBMateria.Size = new System.Drawing.Size(121, 21);
+            this.CBMateria.TabIndex = 19;
+            this.CBMateria.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.CBMateria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox2_KeyPress);
             // 
             // AgregarRegistroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 213);
-            this.Controls.Add(this.TxtClave);
-            this.Controls.Add(this.TxtID);
+            this.ClientSize = new System.Drawing.Size(378, 359);
+            this.Controls.Add(this.CBMateria);
+            this.Controls.Add(this.CBAlumno);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtVincular);
             this.Controls.Add(this.LBClave);
@@ -153,7 +138,7 @@
         private MaterialSkin.Controls.MaterialLabel LBClave;
         private MaterialSkin.Controls.MaterialRaisedButton BtCancelar;
         private MaterialSkin.Controls.MaterialRaisedButton BtVincular;
-        private MaterialSkin.Controls.MaterialSingleLineTextField TxtID;
-        private MaterialSkin.Controls.MaterialSingleLineTextField TxtClave;
+        private System.Windows.Forms.ComboBox CBAlumno;
+        private System.Windows.Forms.ComboBox CBMateria;
     }
 }

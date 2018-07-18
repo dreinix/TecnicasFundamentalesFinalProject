@@ -69,9 +69,12 @@
             // 
             // DGVAlumnos
             // 
+            this.DGVAlumnos.AllowUserToAddRows = false;
+            this.DGVAlumnos.AllowUserToDeleteRows = false;
             this.DGVAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVAlumnos.Location = new System.Drawing.Point(12, 145);
             this.DGVAlumnos.Name = "DGVAlumnos";
+            this.DGVAlumnos.ReadOnly = true;
             this.DGVAlumnos.Size = new System.Drawing.Size(1565, 507);
             this.DGVAlumnos.TabIndex = 11;
             // 

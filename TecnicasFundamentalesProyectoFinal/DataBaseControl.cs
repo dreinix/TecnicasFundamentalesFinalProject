@@ -14,7 +14,9 @@ namespace TecnicasFundamentalesProyectoFinal
     public class DataBaseControl
     {   
         SqlConnection con = new SqlConnection();
-        public static string cPath = System.IO.Path.GetFullPath(@"..\..\");
+
+        public static string cPath = Directory.GetCurrentDirectory()+@"\";
+        //public static string cPath = Path.GetFullPath(@"..\..\");
         string _location="";
         SqlCommand cmd = new SqlCommand();
 
@@ -22,21 +24,15 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void Open()
         {
-            if (File.Exists(_location))
-            {
                 try
                 {
                     con.Close();
+                    //String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
                     String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
                     con.ConnectionString = path;
                     con.Open();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); };
-            }
-            else
-            {
-                MessageBox.Show("Base de datos no encontrada");
-            }
         }
         public void Close() => con.Close();
         public List<SqlDataReader> Buscar(string _query)
@@ -177,7 +173,7 @@ namespace TecnicasFundamentalesProyectoFinal
                 Open();
                 using (cmd = new SqlCommand(_query, con))
                 {
-                    for (int i = 0; i < _word.Length-1; i++)
+                    for (int i = 0; i < _word.Length; i++)
                     {
                         cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }

@@ -23,11 +23,16 @@ namespace TecnicasFundamentalesProyectoFinal.Modificar
 
         private void ModificarMaestrosForm_Load(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             string[] parameters = { "@word" };
             string[] value = { TxtFiltrar.Text };
             DataTable table = new DataTable();
-            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + DataBaseControl.cPath + "ProjectDataBase.mdf" + ";Integrated Security=SSPI";
+            string cPath = System.IO.Directory.GetCurrentDirectory() + @"\";
+            //public static string cPath = Path.GetFullPath(@"..\..\");
+            string _location = "", _DataBaseName = "ProjectDataBase.mdf";
+
+            _location = cPath + _DataBaseName;
+            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
             con.ConnectionString = path;
             con.Open();
             using (dataAdapter)
@@ -79,11 +84,16 @@ namespace TecnicasFundamentalesProyectoFinal.Modificar
 
         private void TxtFiltrar_TextChanged(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             string[] parameters = { "@word" };
             string[] value = { TxtFiltrar.Text };
             DataTable table = new DataTable();
-            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + DataBaseControl.cPath + "ProjectDataBase.mdf" + ";Integrated Security=SSPI";
+            string cPath = System.IO.Directory.GetCurrentDirectory() + @"\";
+            //public static string cPath = Path.GetFullPath(@"..\..\");
+            string _location = "", _DataBaseName = "ProjectDataBase.mdf";
+
+            _location = cPath + _DataBaseName;
+            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
             con.ConnectionString = path;
             con.Open();
             using (dataAdapter)

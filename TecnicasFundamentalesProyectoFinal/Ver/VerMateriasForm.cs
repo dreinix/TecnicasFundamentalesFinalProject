@@ -21,7 +21,7 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void VerMateriasForm_Load(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             BindingSource MatSource = new BindingSource();
             MatSource.DataSource = DBControl.ObtenerTabla("Select * from Materias");
             DGVMaterias.DataSource = MatSource;
@@ -32,6 +32,12 @@ namespace TecnicasFundamentalesProyectoFinal
         private void BtSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BTDetallar_Click(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }

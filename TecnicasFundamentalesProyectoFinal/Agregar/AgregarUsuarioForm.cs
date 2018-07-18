@@ -31,6 +31,10 @@ namespace TecnicasFundamentalesProyectoFinal
             {
                 this.Size = new Size(497, 313);
                 this.WindowState = FormWindowState.Maximized;
+                if (cat != "Develop")
+                {
+                    CBCat.Items.Remove("Develop");
+                }   
             }
             else
             {
@@ -38,6 +42,10 @@ namespace TecnicasFundamentalesProyectoFinal
                 LbCat.Hide();
                 CBCat.Hide();
                 cat = "User";
+                if (cat != "Develop")
+                {
+                    CBCat.Items.Remove("Develop");
+                }
             }
             this.Sizable = false;
             this.MinimizeBox = false;
@@ -46,7 +54,50 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void MaterialLayout_Load(object sender, EventArgs e)
         {
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
+            string[] para = { "@id" };
+            string[] val = {System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString() };
+            if(cat!="Adm" || cat != "Develop")
+            {
+                if (DBControl.Buscar("select * from Activos where [id]=@id", para, val))
+                {
+                    int activos = int.Parse(DBControl.BuscarElemento("select [registros] from [Activos] where [ID] = @id", para, val));
+                    if (activos > 1)
+                    {
+                        this.Size = new Size(336, 313);
+                        LbCat.Hide();
+                        CBCat.Hide();
+                        cat = "User";
+                    }
+                    else
+                    {
+                        this.Size = new Size(497, 313);
+                        LbCat.Show();
+                        CBCat.Show();
+                        cat = "Adm";
+                    }
+                }
+                else
+                {
+                    string[] nums = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString(), "0" };
+                    para = new string[] { "@id", "@nums" };
+                    if (DBControl.Insertar("Insert into [Activos] values(@id,@nums)", para, nums))
+                    {
+                        this.Size = new Size(497, 313);
+                        LbCat.Show();
+                        CBCat.Show();
+                        cat = "Adm";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Algún error inesperado ha ocurrido, por favor, intente de nuevo");
+                        this.Close();
+                    }
+
+                }
+            }
             
+            CBCat.SelectedValue = cat;
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
@@ -56,18 +107,35 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void BtRegistrar_Click(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
-            string[] parameters = {"@userName","@pass","cat"};
-            string[] elements = { TxtUserName.Text,TxtPass.Text, CBCat.SelectedItem.ToString() };
-            if (DBControl.Insertar("insert into Users values(@userName,@pass,@cat)", parameters, elements))
+            try
             {
-                MessageBox.Show("Usuario agregado");
+                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
+                string[] parameters = { "@userName", "@pass", "cat" };
+                string[] elements = { TxtUserName.Text, TxtPass.Text, CBCat.SelectedItem.ToString() };
+                if (DBControl.Insertar("insert into Users values(@userName,@pass,@cat)", parameters, elements))
+                {
+                    string[] para = { "@id" };
+                    string[] val = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString() };
+                    int activos = int.Parse(DBControl.BuscarElemento("select [registros] from Activos where [ID] = @id", para, val));
+                    para = new string[] { "@id", "@nums" };
+                    string[] nums = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString(), (++activos).ToString(), };
+                    DBControl.Insertar("update [Activos] set [registros]=@nums where [id]=@id", para, nums);
+                    
+                    MessageBox.Show("Usuario agregado");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no pudo ser agregado");
+                }
+                DBControl.Close();
             }
-            else
+            catch(Exception)
             {
-                MessageBox.Show("El usuario no pudo ser agregado");
+                MessageBox.Show("Por favor, verifique los datos");
             }
-            DBControl.Close();
+            
+            
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)

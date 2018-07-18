@@ -68,9 +68,12 @@
             // 
             // DGVMaestros
             // 
+            this.DGVMaestros.AllowUserToAddRows = false;
+            this.DGVMaestros.AllowUserToDeleteRows = false;
             this.DGVMaestros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVMaestros.Location = new System.Drawing.Point(12, 151);
             this.DGVMaestros.Name = "DGVMaestros";
+            this.DGVMaestros.ReadOnly = true;
             this.DGVMaestros.Size = new System.Drawing.Size(1565, 507);
             this.DGVMaestros.TabIndex = 11;
             // 

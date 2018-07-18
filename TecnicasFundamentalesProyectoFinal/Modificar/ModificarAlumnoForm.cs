@@ -25,11 +25,16 @@ namespace TecnicasFundamentalesProyectoFinal.Modificar
         private void ModificarAlumnosForm_Load(object sender, EventArgs e)
         {
             AlumnosCS al = new AlumnosCS();
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             string[] parameters = { "@word" };
             string[] value = { TxtFiltrar.Text };
             DataTable table = new DataTable();
-            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + DataBaseControl.cPath + "ProjectDataBase.mdf" + ";Integrated Security=SSPI";
+            string cPath = System.IO.Directory.GetCurrentDirectory() + @"\";
+            //public static string cPath = Path.GetFullPath(@"..\..\");
+            string _location = "",_DataBaseName = "ProjectDataBase.mdf";
+
+            _location = cPath + _DataBaseName;
+            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
             con.ConnectionString = path;
             con.Open();
             using (dataAdapter)
@@ -66,11 +71,16 @@ namespace TecnicasFundamentalesProyectoFinal.Modificar
 
         private void TxtFiltrar_TextChanged(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             string[] parameters = { "@word" };
             string[] value = { TxtFiltrar.Text };
             DataTable table = new DataTable();
-            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + DataBaseControl.cPath + "ProjectDataBase.mdf" + ";Integrated Security=SSPI";
+            string cPath = System.IO.Directory.GetCurrentDirectory() + @"\";
+            //public static string cPath = Path.GetFullPath(@"..\..\");
+            string _location = "", _DataBaseName = "ProjectDataBase.mdf";
+
+            _location = cPath + _DataBaseName;
+            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
             con.ConnectionString = path;
             con.Open();
             using (dataAdapter)
@@ -99,6 +109,16 @@ namespace TecnicasFundamentalesProyectoFinal.Modificar
         private void DGVAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void BTExaminar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                DGVAlumnos.CurrentRow.Cells[7].Value = Image.FromFile(dialog.FileName);
+            }
         }
     }
 }

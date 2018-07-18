@@ -22,7 +22,7 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void BuscarAlumnosForm_Load(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             BindingSource AlmSource = new BindingSource();
             AlmSource.DataSource = DBControl.ObtenerTabla("Select * from Alumnos");
             DGVAlumnos.DataSource = AlmSource;
@@ -32,7 +32,7 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             BindingSource AlmSource = new BindingSource();
             string[] parameters = { "@word" };
             string[] value = {TxtBuscar.Text};

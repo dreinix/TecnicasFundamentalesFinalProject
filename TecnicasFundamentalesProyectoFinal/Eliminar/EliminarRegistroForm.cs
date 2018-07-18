@@ -31,7 +31,7 @@ namespace TecnicasFundamentalesProyectoFinal.Eliminar
         {
             if (TxtUserName.Text.Length > 0)
             {
-                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
                 LVUsuarios.Clear();
                 string[] _parameters = { "@userN","@Materia" };
                 string[] _element = { TxtUserName.Text,TxtMateria.Text };
@@ -49,18 +49,24 @@ namespace TecnicasFundamentalesProyectoFinal.Eliminar
 
         private void BtEliminar_Click(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
-            string[] _parameters = { "@userN", "@Materia" };
-            string[] _element = { TxtUserName.Text, TxtMateria.Text };
-            if (DBControl.Eliminar("Delete from [Registro] where [Alumno] = @userN and [Materia] = @Materia ", _parameters, _element))
+            try
             {
-                MessageBox.Show("Registro eliminado con exito");
-                LVUsuarios.Clear();
+                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
+                string[] _parameters = { "@userN", "@Materia" };
+                string[] _element = { TxtUserName.Text, TxtMateria.Text };
+                if (DBControl.Eliminar("Delete from [Registro] where [Alumno] = @userN and [Materia] = @Materia ", _parameters, _element))
+                {
+
+                    MessageBox.Show("Registro eliminado con exito");
+                    LVUsuarios.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar usuario");
+                }   
             }
-            else
-            {
-                MessageBox.Show("Error al eliminar usuario");
-            }
+            catch (Exception) { MessageBox.Show("Por favor, verificar los datos"); }
+            
 
         }
 
@@ -68,6 +74,11 @@ namespace TecnicasFundamentalesProyectoFinal.Eliminar
         {
             
             this.Close();
+        }
+
+        private void LVUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TxtUserName.Text = LVUsuarios.FocusedItem.Text;
         }
     }
 }

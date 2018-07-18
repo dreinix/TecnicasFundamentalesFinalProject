@@ -21,7 +21,7 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void BuscarMateriasForm_Load(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             BindingSource MatSource = new BindingSource();
             MatSource.DataSource = DBControl.ObtenerTabla("Select * from Materias");
             DGVMaterias.DataSource = MatSource;
@@ -31,7 +31,7 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             BindingSource MatSource = new BindingSource();
             string[] parameters = { "@word" };
             string[] value = {TxtBuscar.Text};

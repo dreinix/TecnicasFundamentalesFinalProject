@@ -55,10 +55,15 @@
             // LVUsuarios
             // 
             this.LVUsuarios.Location = new System.Drawing.Point(16, 192);
+            this.LVUsuarios.MultiSelect = false;
             this.LVUsuarios.Name = "LVUsuarios";
             this.LVUsuarios.Size = new System.Drawing.Size(99, 232);
+            this.LVUsuarios.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.LVUsuarios.TabIndex = 11;
             this.LVUsuarios.UseCompatibleStateImageBehavior = false;
+            this.LVUsuarios.View = System.Windows.Forms.View.List;
+            this.LVUsuarios.VirtualListSize = 1;
+            this.LVUsuarios.SelectedIndexChanged += new System.EventHandler(this.LVUsuarios_SelectedIndexChanged);
             // 
             // LbUserFounds
             // 

@@ -30,6 +30,7 @@
         {
             this.BtSalir = new MaterialSkin.Controls.MaterialRaisedButton();
             this.DGVAlumno = new System.Windows.Forms.DataGridView();
+            this.BTDetallar = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAlumno)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,17 +52,37 @@
             // 
             // DGVAlumno
             // 
+            this.DGVAlumno.AllowUserToAddRows = false;
+            this.DGVAlumno.AllowUserToDeleteRows = false;
             this.DGVAlumno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVAlumno.Location = new System.Drawing.Point(12, 85);
             this.DGVAlumno.Name = "DGVAlumno";
+            this.DGVAlumno.ReadOnly = true;
             this.DGVAlumno.Size = new System.Drawing.Size(1543, 507);
             this.DGVAlumno.TabIndex = 2;
+            // 
+            // BTDetallar
+            // 
+            this.BTDetallar.AutoSize = true;
+            this.BTDetallar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BTDetallar.Depth = 0;
+            this.BTDetallar.Icon = null;
+            this.BTDetallar.Location = new System.Drawing.Point(1561, 85);
+            this.BTDetallar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BTDetallar.Name = "BTDetallar";
+            this.BTDetallar.Primary = true;
+            this.BTDetallar.Size = new System.Drawing.Size(88, 36);
+            this.BTDetallar.TabIndex = 3;
+            this.BTDetallar.Text = "Detallar";
+            this.BTDetallar.UseVisualStyleBackColor = true;
+            this.BTDetallar.Click += new System.EventHandler(this.BTDetallar_Click);
             // 
             // VerAlumnosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1569, 641);
+            this.ClientSize = new System.Drawing.Size(1662, 641);
+            this.Controls.Add(this.BTDetallar);
             this.Controls.Add(this.DGVAlumno);
             this.Controls.Add(this.BtSalir);
             this.Name = "VerAlumnosForm";
@@ -78,5 +99,6 @@
         #endregion
         private MaterialSkin.Controls.MaterialRaisedButton BtSalir;
         private System.Windows.Forms.DataGridView DGVAlumno;
+        private MaterialSkin.Controls.MaterialRaisedButton BTDetallar;
     }
 }

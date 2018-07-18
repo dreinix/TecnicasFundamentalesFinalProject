@@ -103,6 +103,8 @@
             // 
             // DGVAlumnos
             // 
+            this.DGVAlumnos.AllowUserToAddRows = false;
+            this.DGVAlumnos.AllowUserToDeleteRows = false;
             this.DGVAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVAlumnos.Location = new System.Drawing.Point(12, 147);
             this.DGVAlumnos.Name = "DGVAlumnos";

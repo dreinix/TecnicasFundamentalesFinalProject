@@ -51,9 +51,12 @@
             // 
             // DGVMaterias
             // 
+            this.DGVMaterias.AllowUserToAddRows = false;
+            this.DGVMaterias.AllowUserToDeleteRows = false;
             this.DGVMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVMaterias.Location = new System.Drawing.Point(12, 69);
             this.DGVMaterias.Name = "DGVMaterias";
+            this.DGVMaterias.ReadOnly = true;
             this.DGVMaterias.Size = new System.Drawing.Size(1565, 507);
             this.DGVMaterias.TabIndex = 5;
             // 
@@ -61,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1589, 634);
+            this.ClientSize = new System.Drawing.Size(1614, 634);
             this.Controls.Add(this.BtSalir);
             this.Controls.Add(this.DGVMaterias);
             this.Name = "VerMateriasForm";

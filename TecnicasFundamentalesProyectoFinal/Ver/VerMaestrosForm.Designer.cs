@@ -30,17 +30,20 @@
         {
             this.DGVMaetro = new System.Windows.Forms.DataGridView();
             this.BtSalir = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BTDetallar = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMaetro)).BeginInit();
             this.SuspendLayout();
             // 
             // DGVMaetro
             // 
+            this.DGVMaetro.AllowUserToAddRows = false;
+            this.DGVMaetro.AllowUserToDeleteRows = false;
             this.DGVMaetro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVMaetro.Location = new System.Drawing.Point(12, 70);
             this.DGVMaetro.Name = "DGVMaetro";
+            this.DGVMaetro.ReadOnly = true;
             this.DGVMaetro.Size = new System.Drawing.Size(1565, 507);
             this.DGVMaetro.TabIndex = 3;
-            this.DGVMaetro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVAlumno_CellContentClick);
             // 
             // BtSalir
             // 
@@ -58,11 +61,28 @@
             this.BtSalir.UseVisualStyleBackColor = true;
             this.BtSalir.Click += new System.EventHandler(this.BtSalir_Click);
             // 
+            // BTDetallar
+            // 
+            this.BTDetallar.AutoSize = true;
+            this.BTDetallar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BTDetallar.Depth = 0;
+            this.BTDetallar.Icon = null;
+            this.BTDetallar.Location = new System.Drawing.Point(1583, 70);
+            this.BTDetallar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BTDetallar.Name = "BTDetallar";
+            this.BTDetallar.Primary = true;
+            this.BTDetallar.Size = new System.Drawing.Size(88, 36);
+            this.BTDetallar.TabIndex = 5;
+            this.BTDetallar.Text = "Detallar";
+            this.BTDetallar.UseVisualStyleBackColor = true;
+            this.BTDetallar.Click += new System.EventHandler(this.BTDetallar_Click);
+            // 
             // VerMaestrosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1589, 634);
+            this.ClientSize = new System.Drawing.Size(1694, 634);
+            this.Controls.Add(this.BTDetallar);
             this.Controls.Add(this.BtSalir);
             this.Controls.Add(this.DGVMaetro);
             this.Name = "VerMaestrosForm";
@@ -78,5 +98,6 @@
 
         private System.Windows.Forms.DataGridView DGVMaetro;
         private MaterialSkin.Controls.MaterialRaisedButton BtSalir;
+        private MaterialSkin.Controls.MaterialRaisedButton BTDetallar;
     }
 }

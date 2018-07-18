@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace TecnicasFundamentalesProyectoFinal.Buscar
 
         private void BuscarRegistroForm_Load(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             BindingSource AlmSource = new BindingSource();
             string[] parameters = { "@word" };
             string[] value = { TxtBuscar.Text };
@@ -32,10 +33,8 @@ namespace TecnicasFundamentalesProyectoFinal.Buscar
         private void LbBuscar_TextChanged(object sender, EventArgs e)
         {
             
-            
-
         }
-
+            
         private void BtSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,7 +51,7 @@ namespace TecnicasFundamentalesProyectoFinal.Buscar
                 { 'F', 0 }
             };
             LBIndice.Text = "0";
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             BindingSource AlmSource = new BindingSource();
             string[] parameters = { "@word" };
             string[] value = { TxtBuscar.Text };
@@ -60,23 +59,31 @@ namespace TecnicasFundamentalesProyectoFinal.Buscar
             DGVAlumnos.DataSource = AlmSource;
             DGVAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGVAlumnos.ReadOnly = true;
+            string[] para;
+            string[] val;
             try
             {
-                int suma = 0, total = 0;
+                float suma = 0, total = 0;
                 for (int i = 0; i < DGVAlumnos.Rows.Count; i++)
                 {
-                    string[] para = { "@id" };
-                    string[] val = { DGVAlumnos.CurrentRow.Cells[0].Value.ToString() };
+                    para = new string[] { "@id" };
+                    val = new string[] { DGVAlumnos.Rows[i].Cells[0].Value.ToString() };
                     int credito = int.Parse(DBControl.BuscarElemento("Select [Credito] from [Materias] where [Clave]=@id", para, val));
                     total += credito;
-                    string literal = (DGVAlumnos.CurrentRow.Cells[2].Value.ToString().ToUpper());
+                    string literal = (DGVAlumnos.Rows[i].Cells[2].Value.ToString().ToUpper());
                     string test = "" + literal;
                     suma += valores[literal[0]] * credito;
                 }
                 LBIndice.Text = (suma / total).ToString();
+                SqlConnection con = new SqlConnection();
+                using (SqlCommand cmd = new SqlCommand("Update [Alumnos] set [Indice]=@nota where [ID]=@alumno", con))
+                {
+                    cmd.Parameters.AddWithValue("@alumno", TxtBuscar.Text);
+                    cmd.Parameters.AddWithValue("@nota", float.Parse(LBIndice.Text));
+                    cmd.ExecuteNonQuery();
+                }
             }
-            catch (Exception ex) { /*MessageBox.Show(ex.Message);*/ }
-            
+            catch (Exception ex) { /*MessageBox.Show(ex.Message);*/ } 
         }
     }
 }

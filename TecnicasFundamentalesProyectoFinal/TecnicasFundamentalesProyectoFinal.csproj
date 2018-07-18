@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\ricar\OneDrive\Escritorio\Wizards\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,9 +22,15 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <TargetCulture>es-DO</TargetCulture>
+    <ProductName>Tecnicas Fundamentales Project</ProductName>
+    <PublisherName>Inix</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>6.2.20.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,6 +51,24 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>053A27FA1BB3635AC4974E8CF39B5B66D08497C1</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>TecnicasFundamentalesProyectoFinal_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -194,14 +218,32 @@
     <Compile Include="Modificar\ModificarMateriasForm.Designer.cs">
       <DependentUpon>ModificarMateriasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modificar\ModificarUsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar\ModificarUsuariosForm.Designer.cs">
+      <DependentUpon>ModificarUsuariosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroCS.cs" />
+    <Compile Include="Ver\VerDetallesMaestro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver\VerDetallesMaestro.Designer.cs">
+      <DependentUpon>VerDetallesMaestro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ver\VerAlumnosForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ver\VerAlumnosForm.Designer.cs">
       <DependentUpon>VerAlumnosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver\VerDetallesAlumnoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver\VerDetallesAlumnoForm.Designer.cs">
+      <DependentUpon>VerDetallesAlumnoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Ver\VerMaestrosForm.cs">
       <SubType>Form</SubType>
@@ -278,6 +320,9 @@
     <EmbeddedResource Include="Modificar\ModificarMateriasForm.resx">
       <DependentUpon>ModificarMateriasForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modificar\ModificarUsuariosForm.resx">
+      <DependentUpon>ModificarUsuariosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -288,8 +333,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Ver\VerDetallesMaestro.resx">
+      <DependentUpon>VerDetallesMaestro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ver\VerAlumnosForm.resx">
       <DependentUpon>VerAlumnosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver\VerDetallesAlumnoForm.resx">
+      <DependentUpon>VerDetallesAlumnoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver\VerMaestrosForm.resx">
       <DependentUpon>VerMaestrosForm.cs</DependentUpon>
@@ -298,6 +349,7 @@
       <DependentUpon>VerMateriasForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -307,6 +359,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TecnicasFundamentalesProyectoFinal_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -322,9 +375,36 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.12.0.x64">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types for SQL Server® 2014 %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.12.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types for SQL Server® 2014 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\intec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="intec.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectDataBase.mdf" />
+    <Content Include="ProjectDataBase_log.ldf">
+      <DependentUpon>ProjectDataBase.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

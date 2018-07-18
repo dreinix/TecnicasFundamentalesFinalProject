@@ -35,7 +35,7 @@ namespace TecnicasFundamentalesProyectoFinal
         {
             if (TxtUserName.Text.Length > 0)
             {
-                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
                 LVUsuarios.Clear();
                 string[] _parameters = {"@userN" };
                 string[] _element = { TxtUserName.Text };
@@ -71,23 +71,35 @@ namespace TecnicasFundamentalesProyectoFinal
 
         private void BtEliminar_Click_1(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
-            string[] para = { "@user" };
-            string[] ele = { TxtUserName.Text };
-            if (DBControl.Eliminar("Delete from [Users] where [Username] = @user", para, ele)){
-                MessageBox.Show("Usuario eliminado con exito");
-            }
-            else
+            try
             {
-                MessageBox.Show("Error al eliminar usuario");
+                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
+                string[] para = { "@user" };
+                string[] ele = { TxtUserName.Text };
+                if (DBControl.Eliminar("Delete from [Users] where [Username] = @user", para, ele))
+                {
+                    
+                    MessageBox.Show("Usuario eliminado con exito");
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar usuario");
+                }
+                DBControl.Close();
             }
-            DBControl.Close();
+            catch (Exception) { MessageBox.Show("Por favor, verificar los datos"); }
+            
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
         {
             
             this.Close();
+        }
+
+        private void LVUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TxtUserName.Text = LVUsuarios.FocusedItem.Text;
         }
     }
 }

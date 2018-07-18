@@ -26,7 +26,7 @@ namespace TecnicasFundamentalesProyectoFinal.Eliminar
         {
             if (TxtUserName.Text.Length > 0)
             {
-                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
+                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
                 LVUsuarios.Clear();
                 string[] _parameters = { "@userN" };
                 string[] _element = { TxtUserName.Text };
@@ -45,23 +45,34 @@ namespace TecnicasFundamentalesProyectoFinal.Eliminar
 
         private void BtEliminar_Click(object sender, EventArgs e)
         {
-            DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath, "ProjectDataBase.mdf");
-            string[] para = { "@user" };
-            string[] ele = { TxtUserName.Text };
-            if (DBControl.Eliminar("Delete from [Materias] where [Clave] = @user", para, ele))
+            try
             {
-                MessageBox.Show("Materia eliminado con exito");
-                LVUsuarios.Clear();
+                DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
+                string[] para = { "@user" };
+                string[] ele = { TxtUserName.Text };
+                if (DBControl.Eliminar("Delete from [Materias] where [Clave] = @user", para, ele))
+                {
+                    DBControl.Eliminar("Delete from [Registro] where [Materia] = @user",para,ele);
+                    MessageBox.Show("Materia eliminado con exito");
+                    LVUsuarios.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar Materia");
+                }
             }
-            else
-            {
-                MessageBox.Show("Error al eliminar Materia");
-            }
+            catch (Exception) { MessageBox.Show("Por favor, verificar los datos"); }
+            
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void LVUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TxtUserName.Text = LVUsuarios.FocusedItem.Text;
         }
     }
 }

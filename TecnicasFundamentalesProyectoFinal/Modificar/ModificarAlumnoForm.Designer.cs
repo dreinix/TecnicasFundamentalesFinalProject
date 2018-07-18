@@ -33,6 +33,7 @@
             this.TxtFiltrar = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.DGVAlumnos = new System.Windows.Forms.DataGridView();
             this.BtEditar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.BTExaminar = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +87,8 @@
             // 
             // DGVAlumnos
             // 
+            this.DGVAlumnos.AllowUserToAddRows = false;
+            this.DGVAlumnos.AllowUserToDeleteRows = false;
             this.DGVAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVAlumnos.Location = new System.Drawing.Point(12, 156);
             this.DGVAlumnos.Name = "DGVAlumnos";
@@ -99,7 +102,7 @@
             this.BtEditar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtEditar.Depth = 0;
             this.BtEditar.Icon = null;
-            this.BtEditar.Location = new System.Drawing.Point(1598, 156);
+            this.BtEditar.Location = new System.Drawing.Point(1598, 198);
             this.BtEditar.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtEditar.Name = "BtEditar";
             this.BtEditar.Primary = true;
@@ -109,11 +112,28 @@
             this.BtEditar.UseVisualStyleBackColor = true;
             this.BtEditar.Click += new System.EventHandler(this.BtEditar_Click);
             // 
+            // BTExaminar
+            // 
+            this.BTExaminar.AutoSize = true;
+            this.BTExaminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BTExaminar.Depth = 0;
+            this.BTExaminar.Icon = null;
+            this.BTExaminar.Location = new System.Drawing.Point(1598, 156);
+            this.BTExaminar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BTExaminar.Name = "BTExaminar";
+            this.BTExaminar.Primary = true;
+            this.BTExaminar.Size = new System.Drawing.Size(145, 36);
+            this.BTExaminar.TabIndex = 20;
+            this.BTExaminar.Text = "Examinar Imagen";
+            this.BTExaminar.UseVisualStyleBackColor = true;
+            this.BTExaminar.Click += new System.EventHandler(this.BTExaminar_Click);
+            // 
             // ModificarAlumnoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1852, 875);
+            this.Controls.Add(this.BTExaminar);
             this.Controls.Add(this.BtEditar);
             this.Controls.Add(this.BtSalir);
             this.Controls.Add(this.LbBuscar);
@@ -135,5 +155,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField TxtFiltrar;
         private System.Windows.Forms.DataGridView DGVAlumnos;
         private MaterialSkin.Controls.MaterialRaisedButton BtEditar;
+        private MaterialSkin.Controls.MaterialRaisedButton BTExaminar;
     }
 }

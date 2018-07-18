@@ -59,6 +59,8 @@
             this.LVUsuarios.Size = new System.Drawing.Size(99, 232);
             this.LVUsuarios.TabIndex = 17;
             this.LVUsuarios.UseCompatibleStateImageBehavior = false;
+            this.LVUsuarios.View = System.Windows.Forms.View.List;
+            this.LVUsuarios.SelectedIndexChanged += new System.EventHandler(this.LVUsuarios_SelectedIndexChanged);
             // 
             // LbUserFounds
             // 

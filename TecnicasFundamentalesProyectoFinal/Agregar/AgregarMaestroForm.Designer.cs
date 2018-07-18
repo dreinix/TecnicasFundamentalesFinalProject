@@ -82,6 +82,7 @@
             this.TxtID.TabIndex = 1;
             this.TxtID.TabStop = false;
             this.TxtID.UseSystemPasswordChar = false;
+            this.TxtID.TextChanged += new System.EventHandler(this.TextChanged);
             // 
             // TxtNombre
             // 
@@ -100,6 +101,7 @@
             this.TxtNombre.TabStop = false;
             this.TxtNombre.UseSystemPasswordChar = false;
             this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
+            this.TxtNombre.TextChanged += new System.EventHandler(this.TextChanged);
             // 
             // BtGuardar
             // 

@@ -105,6 +105,8 @@
             this.LVUsuarios.Size = new System.Drawing.Size(99, 232);
             this.LVUsuarios.TabIndex = 5;
             this.LVUsuarios.UseCompatibleStateImageBehavior = false;
+            this.LVUsuarios.View = System.Windows.Forms.View.List;
+            this.LVUsuarios.SelectedIndexChanged += new System.EventHandler(this.LVUsuarios_SelectedIndexChanged);
             // 
             // BtCancelar
             // 
@@ -122,7 +124,7 @@
             this.BtCancelar.UseVisualStyleBackColor = true;
             this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
-            // EliminarUsuario
+            // EliminarUsuarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,7 +135,7 @@
             this.Controls.Add(this.BtEliminar);
             this.Controls.Add(this.TxtUserName);
             this.Controls.Add(this.LbUserName);
-            this.Name = "EliminarUsuario";
+            this.Name = "EliminarUsuarioForm";
             this.Text = "EliminarUsuario";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
