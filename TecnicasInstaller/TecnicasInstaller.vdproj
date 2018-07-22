@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_7074A03093A840709E805C604573B67C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_96DC032D4D7847FCAD07D08C3FFB41A9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -41,6 +47,12 @@
         {
         "MsmKey" = "8:_B2C0EA6C50765A3B9067F77642E55469"
         "OwnerKey" = "8:_62029EA7DED046CCA2CA97637B123E30"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C062D5D674724EE2ACEF458A24B59486"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -93,6 +105,11 @@
                     "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.6.1"
                     }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.SqlLocalDB.11.1"
+                    {
+                    "Name" = "8:SQL Server 2012 Express LocalDB"
+                    "ProductCode" = "8:Microsoft.SqlServer.SqlLocalDB.11.1"
+                    }
                 }
             }
         }
@@ -118,6 +135,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -164,7 +189,7 @@
             "SourcePath" = "8:MaterialSkin.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_C249027E8E4E4CA3B33027EDE92EDE8E"
+            "Folder" = "8:_BB816BD5B11B41F1A889E91E402A9656"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -179,12 +204,32 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7074A03093A840709E805C604573B67C"
+            {
+            "SourcePath" = "8:..\\TecnicasFundamentalesProyectoFinal\\ProjectDataBase_log.ldf"
+            "TargetName" = "8:ProjectDataBase_log.ldf"
+            "Tag" = "8:"
+            "Folder" = "8:_A61F4D26D0A64C79A99B9BA538385170"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_96DC032D4D7847FCAD07D08C3FFB41A9"
             {
             "SourcePath" = "8:..\\TecnicasFundamentalesProyectoFinal\\intec.png"
             "TargetName" = "8:intec.png"
             "Tag" = "8:"
-            "Folder" = "8:_C249027E8E4E4CA3B33027EDE92EDE8E"
+            "Folder" = "8:_BB816BD5B11B41F1A889E91E402A9656"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -204,7 +249,7 @@
             "SourcePath" = "8:C:\\Users\\ricar\\OneDrive\\Escritorio\\INTEC.ico"
             "TargetName" = "8:INTEC.ico"
             "Tag" = "8:"
-            "Folder" = "8:_C249027E8E4E4CA3B33027EDE92EDE8E"
+            "Folder" = "8:_BB816BD5B11B41F1A889E91E402A9656"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -235,7 +280,7 @@
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_C249027E8E4E4CA3B33027EDE92EDE8E"
+            "Folder" = "8:_BB816BD5B11B41F1A889E91E402A9656"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -248,6 +293,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C062D5D674724EE2ACEF458A24B59486"
+            {
+            "SourcePath" = "8:..\\TecnicasFundamentalesProyectoFinal\\ProjectDataBase.mdf"
+            "TargetName" = "8:ProjectDataBase.mdf"
+            "Tag" = "8:"
+            "Folder" = "8:_A61F4D26D0A64C79A99B9BA538385170"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -288,6 +353,28 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BB816BD5B11B41F1A889E91E402A9656"
+                    {
+                    "Name" = "8:Nmar"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_1DB45FBC954740BB804F588D92B5690D"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_A61F4D26D0A64C79A99B9BA538385170"
+                            {
+                            "Name" = "8:ApplicationData"
+                            "AlwaysCreate" = "11:TRUE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_401C17032BC64502B1FA16EAFA7667D8"
+                                "Folders"
+                                {
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -307,7 +394,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NMAR Project"
         "ProductCode" = "8:{F5173A3E-6D33-4CEB-A976-BD1CB90A5B0A}"
-        "PackageCode" = "8:{2F08FF7A-EF95-4F86-AF65-3D931F3D98E5}"
+        "PackageCode" = "8:{D4403208-D836-403E-AD96-56B0AA37B7DE}"
         "UpgradeCode" = "8:{0BC9EDA8-0CA8-43D9-9E03-EEA4281C13FC}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -859,7 +946,7 @@
             "SourcePath" = "8:..\\TecnicasFundamentalesProyectoFinal\\obj\\Debug\\TecnicasFundamentalesProyectoFinal.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_C249027E8E4E4CA3B33027EDE92EDE8E"
+            "Folder" = "8:_BB816BD5B11B41F1A889E91E402A9656"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

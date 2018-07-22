@@ -50,20 +50,28 @@ namespace TecnicasFundamentalesProyectoFinal.Eliminar
                 DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
                 string[] para = { "@user" };
                 string[] ele = { TxtUserName.Text };
-                if (DBControl.Eliminar("Delete from [Alumnos] where [ID] = @user", para, ele))
+                if(DBControl.Buscar("Select * from [Registro] where [Alumno]= @user", para, ele))
                 {
-                    DBControl.Eliminar("Delete from [Registro] where [Alumno] = @user", para, ele);
-                    MessageBox.Show("Alumno eliminado con exito");
-                    LVUsuarios.Clear();
+                    MessageBox.Show("Este alumno actualmente figura en una seccion, imposible eliminar");
+                    TxtUserName.Clear();
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar alumno");
+                    if (DBControl.Eliminar("Delete from [Alumnos] where [ID] = @user", para, ele))
+                    {
+
+                        MessageBox.Show("Alumno eliminado con exito");
+                        LVUsuarios.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar alumno");
+                    }
                 }
+                
             }
             catch (Exception) { MessageBox.Show("Por favor, verificar los datos"); }
-            
-
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)

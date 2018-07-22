@@ -12,15 +12,18 @@ using System.IO;
 namespace TecnicasFundamentalesProyectoFinal
 {
     public class DataBaseControl
-    {   
+    {
         SqlConnection con = new SqlConnection();
 
-        public static string cPath = Directory.GetCurrentDirectory()+@"\";
+        public static string cPath = Directory.GetCurrentDirectory() + @"\";
         //public static string cPath = Path.GetFullPath(@"..\..\");
-        string _location="";
+        string _location = "";
         SqlCommand cmd = new SqlCommand();
-
-        public DataBaseControl(string _rute, string _DataBaseName) => _location = _rute + _DataBaseName;
+        public static string conectionString = "";
+        public DataBaseControl(string _rute, string _DataBaseName) {
+            _location = _rute + @"ApplicationData\" + _DataBaseName;
+            conectionString = @"Data source = (localdb)\v11.0 ; AttachDbFilename=" + _location + "; MultipleActiveResultSets=True; Integrated Security=SSPI";
+        } 
 
         private void Open()
         {
@@ -28,8 +31,9 @@ namespace TecnicasFundamentalesProyectoFinal
                 {
                     con.Close();
                     //String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
-                    String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
-                    con.ConnectionString = path;
+                    conectionString = "Data Source = 148.103.246.141,1433;" +
+                     "Initial Catalog = ProjectDataBase; User ID=visit;Password=visit";
+                    con.ConnectionString = conectionString;
                     con.Open();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); };

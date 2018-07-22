@@ -51,6 +51,7 @@ namespace TecnicasFundamentalesProyectoFinal.Buscar
                 { 'F', 0 }
             };
             LBIndice.Text = "0";
+            LBHonor.Text = "Ninguno";
             DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
             BindingSource AlmSource = new BindingSource();
             string[] parameters = { "@word" };
@@ -75,6 +76,15 @@ namespace TecnicasFundamentalesProyectoFinal.Buscar
                     suma += valores[literal[0]] * credito;
                 }
                 LBIndice.Text = (suma / total).ToString();
+                double indice = double.Parse(LBIndice.Text);
+                if (indice > 3.80 && indice < 4.0)
+                    LBHonor.Text = "Summa Cum Laude";
+                if (indice > 3.50 && indice < 3.79)
+                    LBHonor.Text = "Magna Cum Laude";
+                if (indice > 3.20 && indice < 3.49)
+                    LBHonor.Text = "Cum Laude";
+                if (indice < 3.19)
+                    LBHonor.Text = "Sin honor";
                 SqlConnection con = new SqlConnection();
                 using (SqlCommand cmd = new SqlCommand("Update [Alumnos] set [Indice]=@nota where [ID]=@alumno", con))
                 {

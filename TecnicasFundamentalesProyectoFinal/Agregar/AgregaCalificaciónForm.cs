@@ -31,8 +31,8 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
             //public static string cPath = Path.GetFullPath(@"..\..\");
             string _location = "", _DataBaseName = "ProjectDataBase.mdf";
 
-            _location = cPath + _DataBaseName;
-            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
+            _location = cPath+ @"ApplicationData\" + _DataBaseName;
+            String path = @"Data source = (localdb)\v11.0 ; AttachDbFilename=" + _location + "; MultipleActiveResultSets=True; Integrated Security=SSPI";
             con.ConnectionString = path;
             con.Open();
             using (dataAdapter)
@@ -66,8 +66,8 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
             //public static string cPath = Path.GetFullPath(@"..\..\");
             string _location = "", _DataBaseName = "ProjectDataBase.mdf";
 
-            _location = cPath + _DataBaseName;
-            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
+            _location = cPath + @"ApplicationData\" + _DataBaseName;
+            String path = @"Data source = (localdb)\v11.0 ; AttachDbFilename=" + _location + "; MultipleActiveResultSets=True; Integrated Security=SSPI";
             con.ConnectionString = path;
             con.Open();
             using (dataAdapter)
@@ -130,8 +130,8 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
                     //public static string cPath = Path.GetFullPath(@"..\..\");
                     string _location = "", _DataBaseName = "ProjectDataBase.mdf";
 
-                    _location = cPath + _DataBaseName;
-                    String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
+                    _location = cPath + @"ApplicationData\" + _DataBaseName;
+                    String path = @"Data source = (localdb)\v11.0 ; AttachDbFilename=" + _location + "; MultipleActiveResultSets=True; Integrated Security=SSPI";
                     con.ConnectionString = path;
                     con.Open();
                     using(SqlCommand cmd = new SqlCommand("Update [Registro] set [Alumno]=@alumno, [Materia] = @materia,[Calificacion]=@cal,[CalificacionLiteral] = @calLit where [Alumno]=@alumno and [Materia]=@materia", con))
@@ -207,7 +207,7 @@ namespace TecnicasFundamentalesProyectoFinal.Agregar
                         using (SqlCommand cmd = new SqlCommand("Update [Alumnos] set [Indice]=@nota where [ID]=@alumno", con))
                         {
                             cmd.Parameters.AddWithValue("@alumno", ID);
-                            cmd.Parameters.AddWithValue("@nota", notea);
+                            cmd.Parameters.AddWithValue("@nota", Math.Round(notea,2));
                             cmd.ExecuteNonQuery();
                         }
                     }

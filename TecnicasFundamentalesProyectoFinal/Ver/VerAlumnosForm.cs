@@ -54,18 +54,37 @@ namespace TecnicasFundamentalesProyectoFinal
                 try
                 {
                     MemoryStream ms = ms = new MemoryStream((byte[])DGVAlumno.CurrentRow.Cells[7].Value);
-
+                    double indice = double.Parse(DGVAlumno.CurrentRow.Cells[8].Value.ToString());
+                    string honor = "Sin honor";
+                    if (indice > 3.80 && indice < 4.0)
+                        honor = "Summa Cum Laude";
+                    if (indice > 3.50 && indice < 3.79)
+                        honor = "Magna Cum Laude";
+                    if (indice > 3.20 && indice < 3.49)
+                        honor = "Cum Laude";
+                    if (indice < 3.19)
+                        honor = "Sin honor";
                     Ver.VerDetallesAlumnoForm detalle = new Ver.VerDetallesAlumnoForm(DGVAlumno.CurrentRow.Cells[1].Value.ToString(), DGVAlumno.CurrentRow.Cells[2].Value.ToString(),
                         DGVAlumno.CurrentRow.Cells[4].Value.ToString(), DGVAlumno.CurrentRow.Cells[3].Value.ToString(), DGVAlumno.CurrentRow.Cells[5].Value.ToString(),
-                        DGVAlumno.CurrentRow.Cells[6].Value.ToString(), Image.FromStream(ms));
+                        DGVAlumno.CurrentRow.Cells[6].Value.ToString(), Image.FromStream(ms),DGVAlumno.CurrentRow.Cells[8].Value.ToString(),honor);
                     detalle.ShowDialog();
                 }
                 catch (Exception)
                 {
+                    double indice = double.Parse(DGVAlumno.CurrentRow.Cells[8].Value.ToString());
+                    string honor = "Sin honor";
+                    if (indice > 3.80 && indice < 4.0)
+                        honor = "Summa Cum Laude";
+                    if (indice > 3.50 && indice < 3.79)
+                        honor = "Magna Cum Laude";
+                    if (indice > 3.20 && indice < 3.49)
+                        honor = "Cum Laude";
+                    if (indice < 3.19)
+                        honor = "Sin honor";
                     Image img = Image.FromFile("intec.png");
                     Ver.VerDetallesAlumnoForm detalle = new Ver.VerDetallesAlumnoForm(DGVAlumno.CurrentRow.Cells[1].Value.ToString(), DGVAlumno.CurrentRow.Cells[2].Value.ToString(),
                         DGVAlumno.CurrentRow.Cells[4].Value.ToString(), DGVAlumno.CurrentRow.Cells[3].Value.ToString(), DGVAlumno.CurrentRow.Cells[5].Value.ToString(),
-                        DGVAlumno.CurrentRow.Cells[6].Value.ToString(),img);
+                        DGVAlumno.CurrentRow.Cells[6].Value.ToString(),img, DGVAlumno.CurrentRow.Cells[8].Value.ToString(), honor);
                     detalle.ShowDialog();
                 }
                 

@@ -108,7 +108,14 @@ namespace TecnicasFundamentalesProyectoFinal
         private void BtRegistrar_Click(object sender, EventArgs e)
         {
             try
-            {
+            {   
+                if(TxtPass.Text == TxtUserName.Text)
+                {
+                    MessageBox.Show("El usuario y al contraseña no pueden ser iguales");
+                    TxtUserName.Clear();
+                    TxtPass.Clear();
+                    return;                          
+                }
                 DataBaseControl DBControl = new DataBaseControl(DataBaseControl.cPath,"ProjectDataBase.mdf");
                 string[] parameters = { "@userName", "@pass", "cat" };
                 string[] elements = { TxtUserName.Text, TxtPass.Text, CBCat.SelectedItem.ToString() };

@@ -34,6 +34,8 @@
             this.DGVAlumnos = new System.Windows.Forms.DataGridView();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.LBIndice = new MaterialSkin.Controls.MaterialLabel();
+            this.LBHonor = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,11 +124,39 @@
             this.LBIndice.TabIndex = 20;
             this.LBIndice.Text = "0";
             // 
+            // LBHonor
+            // 
+            this.LBHonor.AutoSize = true;
+            this.LBHonor.Depth = 0;
+            this.LBHonor.Font = new System.Drawing.Font("Roboto", 11F);
+            this.LBHonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LBHonor.Location = new System.Drawing.Point(1355, 106);
+            this.LBHonor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LBHonor.Name = "LBHonor";
+            this.LBHonor.Size = new System.Drawing.Size(65, 19);
+            this.LBHonor.TabIndex = 22;
+            this.LBHonor.Text = "Ninguno";
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(1294, 106);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(55, 19);
+            this.materialLabel3.TabIndex = 21;
+            this.materialLabel3.Text = "Honor:";
+            // 
             // BuscarRegistroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1591, 730);
+            this.Controls.Add(this.LBHonor);
+            this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.LBIndice);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.BtSalir);
@@ -150,5 +180,7 @@
         private System.Windows.Forms.DataGridView DGVAlumnos;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel LBIndice;
+        private MaterialSkin.Controls.MaterialLabel LBHonor;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
     }
 }

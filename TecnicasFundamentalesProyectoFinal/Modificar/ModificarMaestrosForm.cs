@@ -31,8 +31,8 @@ namespace TecnicasFundamentalesProyectoFinal.Modificar
             //public static string cPath = Path.GetFullPath(@"..\..\");
             string _location = "", _DataBaseName = "ProjectDataBase.mdf";
 
-            _location = cPath + _DataBaseName;
-            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
+            _location = cPath + @"ApplicationData\" + _DataBaseName;
+            String path = @"Data source = (localdb)\v11.0 ; AttachDbFilename=" + _location + "; MultipleActiveResultSets=True; Integrated Security=SSPI";
             con.ConnectionString = path;
             con.Open();
             using (dataAdapter)
@@ -92,8 +92,8 @@ namespace TecnicasFundamentalesProyectoFinal.Modificar
             //public static string cPath = Path.GetFullPath(@"..\..\");
             string _location = "", _DataBaseName = "ProjectDataBase.mdf";
 
-            _location = cPath + _DataBaseName;
-            String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
+            _location = cPath + @"ApplicationData\" + _DataBaseName;
+            String path = @"Data source = (localdb)\v11.0 ; AttachDbFilename=" + _location + "; MultipleActiveResultSets=True; Integrated Security=SSPI";
             con.ConnectionString = path;
             con.Open();
             using (dataAdapter)

@@ -42,6 +42,10 @@
             this.LbApellido = new MaterialSkin.Controls.MaterialLabel();
             this.LbNombre = new MaterialSkin.Controls.MaterialLabel();
             this.TxtEstado = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.LbIndice = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.LbHonor = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.PBImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -252,11 +256,67 @@
             this.TxtEstado.TabStop = false;
             this.TxtEstado.UseSystemPasswordChar = false;
             // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(607, 198);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(49, 19);
+            this.materialLabel2.TabIndex = 33;
+            this.materialLabel2.Text = "Indice";
+            // 
+            // LbIndice
+            // 
+            this.LbIndice.AutoSize = true;
+            this.LbIndice.Depth = 0;
+            this.LbIndice.Font = new System.Drawing.Font("Roboto", 11F);
+            this.LbIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LbIndice.Location = new System.Drawing.Point(622, 226);
+            this.LbIndice.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LbIndice.Name = "LbIndice";
+            this.LbIndice.Size = new System.Drawing.Size(17, 19);
+            this.LbIndice.TabIndex = 34;
+            this.LbIndice.Text = "0";
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(533, 281);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(55, 19);
+            this.materialLabel3.TabIndex = 35;
+            this.materialLabel3.Text = "Honor:";
+            // 
+            // LbHonor
+            // 
+            this.LbHonor.AutoSize = true;
+            this.LbHonor.Depth = 0;
+            this.LbHonor.Font = new System.Drawing.Font("Roboto", 11F);
+            this.LbHonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LbHonor.Location = new System.Drawing.Point(594, 281);
+            this.LbHonor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LbHonor.Name = "LbHonor";
+            this.LbHonor.Size = new System.Drawing.Size(73, 19);
+            this.LbHonor.TabIndex = 36;
+            this.LbHonor.Text = "Sin honor";
+            // 
             // VerDetallesAlumnoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 483);
+            this.Controls.Add(this.LbHonor);
+            this.Controls.Add(this.materialLabel3);
+            this.Controls.Add(this.LbIndice);
+            this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.TxtEstado);
             this.Controls.Add(this.PBImage);
             this.Controls.Add(this.BtCancelar);
@@ -296,5 +356,9 @@
         private MaterialSkin.Controls.MaterialLabel LbApellido;
         private MaterialSkin.Controls.MaterialLabel LbNombre;
         private MaterialSkin.Controls.MaterialSingleLineTextField TxtEstado;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel LbIndice;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel LbHonor;
     }
 }

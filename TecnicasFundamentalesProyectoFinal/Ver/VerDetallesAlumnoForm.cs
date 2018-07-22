@@ -12,7 +12,7 @@ namespace TecnicasFundamentalesProyectoFinal.Ver
 {
     public partial class VerDetallesAlumnoForm : Material
     {
-        public VerDetallesAlumnoForm(string nombre,string apellido,string estado,string fecha,string carrera,string identificador,Image photo)
+        public VerDetallesAlumnoForm(string nombre,string apellido,string estado,string fecha,string carrera,string identificador,Image photo,string indice,string honor)
         {
             InitializeComponent();
             TxtApellido.Text = apellido;
@@ -22,6 +22,8 @@ namespace TecnicasFundamentalesProyectoFinal.Ver
             TxtNombre.Text = nombre;
             MTBFecha.Text = fecha;
             PBImage.Image = photo;
+            LbHonor.Text = honor;
+            LbIndice.Text = indice;
         }
 
         private void VerDetallesAlumnoForm_Load(object sender, EventArgs e)

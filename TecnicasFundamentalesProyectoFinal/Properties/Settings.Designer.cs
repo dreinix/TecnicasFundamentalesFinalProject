@@ -30,7 +30,7 @@ namespace TecnicasFundamentalesProyectoFinal.Properties {
             "se.mdf;Integrated Security=True")]
         public string ProjectDataBaseConnectionString {
             get {
-                return ((string)(this["ProjectDataBase.mdfConnectionString"]));
+                return ((string)(this["ProjectDataBaseConnectionString"]));
             }
         }
     }

@@ -169,7 +169,7 @@
             this.Controls.Add(this.TxtUserName);
             this.Controls.Add(this.LbUserName);
             this.Name = "EliminarRegistroForm";
-            this.Text = "EliminarRegistroForm";
+            this.Text = "EliminarRegistro";
             this.Load += new System.EventHandler(this.EliminarRegistroForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

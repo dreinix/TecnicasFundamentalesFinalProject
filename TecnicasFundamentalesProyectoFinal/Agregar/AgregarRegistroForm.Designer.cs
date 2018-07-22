@@ -118,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 359);
+            this.ClientSize = new System.Drawing.Size(512, 459);
             this.Controls.Add(this.CBMateria);
             this.Controls.Add(this.CBAlumno);
             this.Controls.Add(this.BtCancelar);
